@@ -1,3 +1,4 @@
+using DynamicSchool.API.Setup;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,9 @@ namespace DynamicSchool.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DynamicSchool.API", Version = "v1" });
             });
+
+            services.AddAutoMapper(typeof(Startup));
+            services.ResolveDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
