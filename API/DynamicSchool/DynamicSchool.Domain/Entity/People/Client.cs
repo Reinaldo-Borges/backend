@@ -4,33 +4,39 @@ using System;
 
 namespace DynamicSchool.Domain.Entity.People
 {
-    public class Client : Entity, IAggregateRoot
+    public abstract class Client : Entity, IAggregateRoot
     {
+        protected abstract ClientTypeEnum clientType { get; }
         public string Name { get; private set; }
         public string Document { get; private set; }
         public string Email { get; private set; }
         public string CellPhone { get; private set; }
-        public DateTime BirthDate { get; private set; }
-        public bool Status { get; set; }
-        public ClientTypeEnum ClientType { get; private set; }
+        public DateTime BirthDate { get; private set; }        
 
 
-        public Client(ClientTypeEnum clientType, string name, string document, string email, string cellPhone, DateTime birthDate)
+        protected Client(string name, string document, string cellPhone, DateTime birthDate)
         {
-            ClientType = clientType;
+      
             Name = name;
-            Document = document;
-            Email = email;
+            Document = document;           
             CellPhone = cellPhone;
             BirthDate = birthDate;
 
-            Validar();
+            Validate();
         }
 
-        public void Activate() => Status = true;
-        public void Inactivate() => Status = false;
+        public virtual void Activate() => StatusEntity = StatusEntityEnum.Active;
+        public virtual void Inactivate() => StatusEntity = StatusEntityEnum.Inactive;
 
-        public void Validar()
+        public Client SetEmail(string email)
+        {
+            //Validar
+
+            Email = email;
+            return this;
+        }
+
+        protected virtual void Validate()
         {
 
         }
