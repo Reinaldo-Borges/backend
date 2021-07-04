@@ -31,7 +31,7 @@ namespace DynamicSchool.Domain.Entity.People
             return this;
         }
 
-        public void Validar()
+        public void Validate()
         {
 
         }
