@@ -1,13 +1,13 @@
-﻿namespace DynamicSchool.Domain.Entity.Courses
+﻿namespace DynamicSchool.Domain.Entities.Courses
 {
-    public class Class : Entity
+    public class Lesson : Entity
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
         public string Image { get; set; }
         public Level Level { get; set; }
 
-        public Class(string name, Level level)
+        public Lesson(string name, Level level)
         {
             Name = name;
             Level = level;

@@ -1,4 +1,4 @@
-﻿namespace DynamicSchool.Domain.Enum
+﻿namespace DynamicSchool.Core.Enum
 {
     public enum StatusEntityEnum
     {

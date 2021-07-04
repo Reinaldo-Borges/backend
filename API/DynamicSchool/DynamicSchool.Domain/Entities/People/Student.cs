@@ -1,6 +1,7 @@
-﻿using System;
+﻿using DynamicSchool.Core.DomainObjects;
+using System;
 
-namespace DynamicSchool.Domain.Entity.People
+namespace DynamicSchool.Domain.Entities.People
 {
     public class Student : Entity
     {

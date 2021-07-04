@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicSchool.API", "DynamicSchool.API\DynamicSchool.API.csproj", "{69DFABFF-9B98-4C3C-B55E-514B00ADCADC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicSchool.API", "DynamicSchool.API\DynamicSchool.API.csproj", "{69DFABFF-9B98-4C3C-B55E-514B00ADCADC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{F9343D5D-0B1A-4D9F-BBF4-0984A22A4F13}"
 EndProject
@@ -11,13 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integracao", "Integracao", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unitario", "Unitario", "{E0BFD650-0D53-4E2E-8AF6-241DF1ED83A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicSchool.Domain", "DynamicSchool.Domain\DynamicSchool.Domain.csproj", "{9E0D5052-064C-456B-B300-377DC4591C76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicSchool.Domain", "DynamicSchool.Domain\DynamicSchool.Domain.csproj", "{9E0D5052-064C-456B-B300-377DC4591C76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicSchool.Infra.Data", "DynamicSchool.Infra.Data\DynamicSchool.Infra.Data.csproj", "{539B9674-8702-4E83-B545-5B11CBF1B0FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicSchool.Infra.Data", "DynamicSchool.Infra.Data\DynamicSchool.Infra.Data.csproj", "{539B9674-8702-4E83-B545-5B11CBF1B0FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicSchool.Test.Integration", "DynamicSchool.Test.Integration\DynamicSchool.Test.Integration.csproj", "{37E7D036-5D14-4950-83DD-EA12CFF2F071}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicSchool.Test.Integration", "DynamicSchool.Test.Integration\DynamicSchool.Test.Integration.csproj", "{37E7D036-5D14-4950-83DD-EA12CFF2F071}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicSchool.Test.Unit", "DynamicSchool.Test.Unit\DynamicSchool.Test.Unit.csproj", "{6C083809-1BFD-417A-9DD8-7CFD14911135}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicSchool.Test.Unit", "DynamicSchool.Test.Unit\DynamicSchool.Test.Unit.csproj", "{6C083809-1BFD-417A-9DD8-7CFD14911135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicSchool.Core", "DynamicSchool.Core\DynamicSchool.Core.csproj", "{C419192B-7974-40C9-90E2-62A8701D7E78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{6C083809-1BFD-417A-9DD8-7CFD14911135}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C083809-1BFD-417A-9DD8-7CFD14911135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C083809-1BFD-417A-9DD8-7CFD14911135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C419192B-7974-40C9-90E2-62A8701D7E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C419192B-7974-40C9-90E2-62A8701D7E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C419192B-7974-40C9-90E2-62A8701D7E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C419192B-7974-40C9-90E2-62A8701D7E78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

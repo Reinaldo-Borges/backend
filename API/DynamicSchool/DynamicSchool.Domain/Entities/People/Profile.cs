@@ -1,4 +1,6 @@
-﻿namespace DynamicSchool.Domain.Entity.People
+﻿using DynamicSchool.Core.DomainObjects;
+
+namespace DynamicSchool.Domain.Entities.People
 {
     public class Profile : Entity
     {

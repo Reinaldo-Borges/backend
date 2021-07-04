@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace DynamicSchool.Domain.Entity.Courses
+namespace DynamicSchool.Domain.Entities.Courses
 {
     public class Level : Entity
     {
         public string Name { get; private set; }
         public string Code { get; private set; }
-        private List<Class> _Classes { get; set; }
-        public IReadOnlyCollection<Class> Classes => _Classes;
+        private List<Lesson> _lessons { get; set; }
+        public IReadOnlyCollection<Lesson> Classes => _lessons;
         public Course Course { get; set; }
 
         public Level(string name, Course course)
@@ -16,9 +16,9 @@ namespace DynamicSchool.Domain.Entity.Courses
             Course = course;
         }
 
-        public Level SetClasses(List<Class> classes)
+        public Level SetClasses(List<Lesson> lessons)
         {
-            _Classes = classes;
+            _lessons = lessons;
             return this;
         }
     }

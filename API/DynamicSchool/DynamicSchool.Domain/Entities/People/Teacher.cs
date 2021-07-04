@@ -1,7 +1,8 @@
-﻿using DynamicSchool.Domain.Enum;
+﻿using DynamicSchool.Core.DomainObjects;
+using DynamicSchool.Core.Enum;
 using System;
 
-namespace DynamicSchool.Domain.Entity.People
+namespace DynamicSchool.Domain.Entities.People
 {
     public class Teacher : Entity
     {

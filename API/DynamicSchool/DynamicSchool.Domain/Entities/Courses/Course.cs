@@ -1,7 +1,7 @@
 ﻿using DynamicSchool.Domain.Entity.People;
 using DynamicSchool.Domain.Inteface;
 
-namespace DynamicSchool.Domain.Entity.Courses
+namespace DynamicSchool.Domain.Entities.Courses
 {
     public class Course : Entity, IAggregateRoot
     {      

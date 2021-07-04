@@ -1,7 +1,7 @@
 ﻿using DynamicSchool.Domain.Enum;
 using System;
 
-namespace DynamicSchool.Domain.Entity.People
+namespace DynamicSchool.Domain.Entities.People
 {
     public class ClienteOwner : Client
     {  

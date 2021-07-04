@@ -1,8 +1,9 @@
-﻿using DynamicSchool.Domain.Enum;
+﻿using DynamicSchool.Core.DomainObjects;
+using DynamicSchool.Core.Enum;
 using DynamicSchool.Domain.Inteface;
 using System;
 
-namespace DynamicSchool.Domain.Entity.People
+namespace DynamicSchool.Domain.Entities.People
 {
     public abstract class Client : Entity, IAggregateRoot
     {
@@ -38,7 +39,7 @@ namespace DynamicSchool.Domain.Entity.People
 
         protected virtual void Validate()
         {
-
+            
         }
 
 

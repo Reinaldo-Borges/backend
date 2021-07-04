@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\Payment\" />
+    <Folder Include="ValueObject\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DynamicSchool.Core\DynamicSchool.Core.csproj" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
   </ItemGroup>
 
 </Project>
