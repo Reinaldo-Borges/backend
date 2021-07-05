@@ -5,8 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="infrastructure\" />
+    <Compile Remove="infrastructure\UOK.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dapper" Version="2.0.90" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicSchool.Domain\DynamicSchool.Domain.csproj" />
   </ItemGroup>
 
 </Project>

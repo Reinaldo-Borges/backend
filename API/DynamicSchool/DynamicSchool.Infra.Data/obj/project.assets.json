@@ -1,11 +1,76 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "Dapper/2.0.90": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Dapper.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {}
+        }
+      },
+      "DynamicSchool.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/DynamicSchool.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DynamicSchool.Core.dll": {}
+        }
+      },
+      "DynamicSchool.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "DynamicSchool.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DynamicSchool.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DynamicSchool.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Dapper/2.0.90": {
+      "sha512": "e4YjOLJptnpwHIbP8HxjaYf7So9lhUC43rvvGMEkH4Q4CiVlm4rOxYDo0HyuHlMQKj0U5Ob/nCMm52TUhTaZQg==",
+      "type": "package",
+      "path": "dapper/2.0.90",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Dapper.png",
+        "dapper.2.0.90.nupkg.sha512",
+        "dapper.nuspec",
+        "lib/net461/Dapper.dll",
+        "lib/net461/Dapper.xml",
+        "lib/net5.0/Dapper.dll",
+        "lib/net5.0/Dapper.xml",
+        "lib/netstandard2.0/Dapper.dll",
+        "lib/netstandard2.0/Dapper.xml"
+      ]
+    },
+    "DynamicSchool.Core/1.0.0": {
+      "type": "project",
+      "path": "../DynamicSchool.Core/DynamicSchool.Core.csproj",
+      "msbuildProject": "../DynamicSchool.Core/DynamicSchool.Core.csproj"
+    },
+    "DynamicSchool.Domain/1.0.0": {
+      "type": "project",
+      "path": "../DynamicSchool.Domain/DynamicSchool.Domain.csproj",
+      "msbuildProject": "../DynamicSchool.Domain/DynamicSchool.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "DynamicSchool.Domain >= 1.0.0",
+      "dapper >= 2.0.90"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\vital.rborges\\.nuget\\packages\\": {},
@@ -42,7 +107,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\MyProjects\\git\\backend\\API\\DynamicSchool\\DynamicSchool.Domain\\DynamicSchool.Domain.csproj": {
+              "projectPath": "C:\\MyProjects\\git\\backend\\API\\DynamicSchool\\DynamicSchool.Domain\\DynamicSchool.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -54,6 +123,12 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
+        "dependencies": {
+          "dapper": {
+            "target": "Package",
+            "version": "[2.0.90, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
