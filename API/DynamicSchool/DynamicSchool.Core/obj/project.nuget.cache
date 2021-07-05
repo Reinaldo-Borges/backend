@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bDrCL1U2lmNFq/LBvaIPQweC5YHpTyoD71J3N9SjJTNHuVe28x81ehyFDEI7TCnjEWB6aEbUFCzHUL/jZcFSDw==",
+  "dgSpecHash": "1Y1PjjpMFyH92UTmXr5xZw0vISUZo1mTr35aZKESwGL0k3GmTAFWCYvsIHYdUaM5xI7WLDyck5GwY0/MvESWNQ==",
   "success": true,
   "projectFilePath": "C:\\MyProjects\\git\\backend\\API\\DynamicSchool\\DynamicSchool.Core\\DynamicSchool.Core.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\vital.rborges\\.nuget\\packages\\fluentassertions\\5.10.3\\fluentassertions.5.10.3.nupkg.sha512",
-    "C:\\Users\\vital.rborges\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.0\\system.configuration.configurationmanager.4.4.0.nupkg.sha512",
-    "C:\\Users\\vital.rborges\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.4.0\\system.security.cryptography.protecteddata.4.4.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

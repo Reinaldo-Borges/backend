@@ -18,5 +18,13 @@ namespace DynamicSchool.Domain.Entities.People
             Client = client;
         }
 
+        private void Validate()
+        {
+            Assertion.HasValue(Login, "The property Login can't be void");
+            Assertion.HasValue(Password, "The property Password can't be void");
+            Assertion.IsNotNull(Profile, "The Profile can't be void");
+            Assertion.IsNotNull(Client, "The Client can't be void");
+        }
+
     }
 }

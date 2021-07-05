@@ -1,5 +1,5 @@
-﻿using DynamicSchool.Core.Enum;
-
+﻿using DynamicSchool.Core.DomainObjects;
+using DynamicSchool.Core.Enum;
 using System;
 
 namespace DynamicSchool.Domain.Entities.People
@@ -18,6 +18,7 @@ namespace DynamicSchool.Domain.Entities.People
 
         protected override void Validate()
         {
+            Assertion.IsNotNull(ClientOriginal, "The ClientOriginal cant be null");
         }
 
 

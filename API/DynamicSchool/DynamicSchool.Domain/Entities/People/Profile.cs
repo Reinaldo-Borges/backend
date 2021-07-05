@@ -11,6 +11,14 @@ namespace DynamicSchool.Domain.Entities.People
         {
             Name = name;
             Description = description;
+
+            Validate();
+        }
+
+        private void Validate()
+        {
+            Assertion.HasValue(Name, "The property Name can't be void");
+            Assertion.HasValue(Description, "The property Description can't be void");
         }
     }
 }

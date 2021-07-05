@@ -16,18 +16,30 @@ namespace DynamicSchool.Domain.Entities.People
             Name = name;
             BirthDate = birthDate;        
             Client = client;
+
+            Validate();
         }
 
         public Student SetEmail(string email)
         {
+            Assertion.HasValue(email, "The property Email can't be void");
+
             Email = email;
             return this;
         }
 
         public Student SetCellPhone(string cellPhone)
         {
+            Assertion.HasValue(cellPhone, "The property CellPhone can't be void");
+
             CellPhone = cellPhone;
             return this;
+        }
+
+        private void Validate()
+        {
+            Assertion.HasValue(Name, "The property Name can't be void");
+            Assertion.IsNotNull(Client, "The Client can't be null");           
         }
     }
 }

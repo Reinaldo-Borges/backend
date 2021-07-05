@@ -20,7 +20,8 @@ namespace DynamicSchool.Domain.Entities.Registrations
 
         private void Validate()
         {
-
+            Assertion.IsNotNull(Student, "The Student can't be null.");
+            Assertion.IsNotNull(Student, "The Course can't be null.");
         }
     }
 }

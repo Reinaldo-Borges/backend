@@ -1,4 +1,4 @@
-﻿using DynamicSchool.Domain.Enum;
+﻿using DynamicSchool.Core.Enum;
 using System;
 
 namespace DynamicSchool.Domain.Entities.People

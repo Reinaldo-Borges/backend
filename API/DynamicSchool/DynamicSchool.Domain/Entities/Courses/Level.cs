@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DynamicSchool.Core.DomainObjects;
+using System.Collections.Generic;
 
 namespace DynamicSchool.Domain.Entities.Courses
 {
@@ -20,6 +21,12 @@ namespace DynamicSchool.Domain.Entities.Courses
         {
             _lessons = lessons;
             return this;
+        }
+
+        private void Validate()
+        {
+            Assertion.HasValue(Name, "The property Name can't be void");
+            Assertion.IsNotNull(Course, "The Course can't be null");
         }
     }
 }

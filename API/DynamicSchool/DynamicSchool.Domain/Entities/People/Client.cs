@@ -31,7 +31,7 @@ namespace DynamicSchool.Domain.Entities.People
 
         public Client SetEmail(string email)
         {
-            //Validar
+            Assertion.HasValue(email, "The property Email can't be void");
 
             Email = email;
             return this;
@@ -39,7 +39,11 @@ namespace DynamicSchool.Domain.Entities.People
 
         protected virtual void Validate()
         {
-            
+            Assertion.HasValue(Name, "The property Name can't be void");
+            Assertion.HasValue(Document, "The property Document can't be void");
+            Assertion.HasValue(CellPhone, "The property can't be void");   
+    
+
         }
 
 

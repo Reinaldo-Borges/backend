@@ -2,7 +2,7 @@
 
 namespace DynamicSchool.Core.DomainObjects
 {
-    public static class AssertionConcern
+    public static class Assertion
     {
         public static void EqualTo(object object1, object object2, string message)
         {
