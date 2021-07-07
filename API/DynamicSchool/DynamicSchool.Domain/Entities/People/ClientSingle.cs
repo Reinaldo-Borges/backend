@@ -4,13 +4,13 @@ using System;
 
 namespace DynamicSchool.Domain.Entities.People
 {
-    public class ClientSingle : Client
+    public class ClientSimple : Client
     {
         protected override ClientTypeEnum clientType => ClientTypeEnum.Simple;
-        public Client ClientOriginal { get; private set; }
+        public Client ClientOrigin { get; private set; }
        
 
-        public ClientSingle(Client clientOriginal, string name, string document, string cellPhone, DateTime birthDate) 
+        public ClientSimple(Client clientOriginal, string name, string document, string cellPhone, DateTime birthDate) 
             : base(name, document, cellPhone, birthDate)
         {
             Validate();
@@ -18,7 +18,7 @@ namespace DynamicSchool.Domain.Entities.People
 
         protected override void Validate()
         {
-            Assertion.IsNotNull(ClientOriginal, "The ClientOriginal cant be null");
+            Assertion.IsNotNull(ClientOrigin, "The ClientOriginal cant be null");
         }
 
 

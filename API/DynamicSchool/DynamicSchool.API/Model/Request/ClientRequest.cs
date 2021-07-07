@@ -1,8 +1,9 @@
-﻿using System;
+﻿using DynamicSchool.Core.Enum;
+using System;
 
-namespace DynamicSchool.Domain.DTO.People
+namespace DynamicSchool.API.Model.Response
 {
-    public class ClientDTO
+    public class ClientRequest
     {
         public Guid Id { get; set; }
         public string Document { get; set; }
@@ -10,7 +11,7 @@ namespace DynamicSchool.Domain.DTO.People
         public string Email { get; set; }
         public string Cellphone { get; set; }
         public DateTime Birthday { get; set; }
-        public int ClientTypeId { get; set; }        
+        public ClientTypeEnum ClientTypeId { get; set; }
         public Guid ClientOrigin { get; set; }
     }
 }

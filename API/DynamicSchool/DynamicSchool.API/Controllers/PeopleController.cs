@@ -1,12 +1,8 @@
 ﻿using DynamicSchool.API.Interfaces;
-using DynamicSchool.Domain.DTO.People;
-using DynamicSchool.Domain.Inteface.Repository;
-using DynamicSchool.Domain.Inteface.UoW;
-using Microsoft.AspNetCore.Http;
+using DynamicSchool.API.Model.Response;
+using DynamicSchool.Domain.Entities.People;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.API.Controllers
@@ -28,6 +24,17 @@ namespace DynamicSchool.API.Controllers
             var client = await _service.GetClientById(id);
 
             if (client == null) return NotFound();
+
+            return Ok(client);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Post(ClientRequest client)
+        {
+
+
+            await _service.Add(client);
 
             return Ok(client);
         }

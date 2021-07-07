@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Command\People\" />
     <Folder Include="infrastructure\Cache\" />
     <Folder Include="infrastructure\IoC\" />
   </ItemGroup>

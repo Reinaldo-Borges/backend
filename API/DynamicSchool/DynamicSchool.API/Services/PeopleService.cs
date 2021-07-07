@@ -1,9 +1,8 @@
 ﻿using DynamicSchool.API.Interfaces;
 using DynamicSchool.Domain.DTO.People;
+using DynamicSchool.Domain.Entities.People;
 using DynamicSchool.Domain.Inteface.UoW;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.API.Services
@@ -15,7 +14,7 @@ namespace DynamicSchool.API.Services
         public PeopleService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-        }
+        }      
 
         public async Task<ClientDTO> GetClientById(Guid id)
         {
@@ -26,6 +25,15 @@ namespace DynamicSchool.API.Services
 
                 return client;
             }            
+        }
+
+        public async Task Add(Client client)
+        {
+            using (_unitOfWork.BeginTransaction())
+            {
+                await _unitOfWork.PeopleRepository.Add(client);
+                _unitOfWork.Commit();            
+            }
         }
     }
 }

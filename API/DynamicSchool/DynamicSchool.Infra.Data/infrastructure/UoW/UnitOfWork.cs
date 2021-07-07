@@ -2,11 +2,7 @@
 using DynamicSchool.Domain.Inteface.UoW;
 using DynamicSchool.Infra.Data.infrastructure.Repository;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DynamicSchool.Infra.Data.infrastructure.UoW
 {

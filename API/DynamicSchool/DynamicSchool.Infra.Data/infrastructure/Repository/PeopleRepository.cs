@@ -1,5 +1,7 @@
 ﻿using DynamicSchool.Domain.DTO.People;
+using DynamicSchool.Domain.Entities.People;
 using DynamicSchool.Domain.Inteface.Repository;
+using DynamicSchool.Infra.Data.Data.Command.People;
 using DynamicSchool.Infra.Data.Data.Query.People;
 using System;
 using System.Data;
@@ -21,6 +23,11 @@ namespace DynamicSchool.Infra.Data.infrastructure.Repository
         public async Task<ClientDTO> GetClientById(Guid id)
         {
             return await new QueryClient(_context, _transaction).GetClientById(id);
+        }
+
+        public async Task Add(Client client)
+        {
+            await new CommandClient(_context, _transaction).Add(client);
         }
     }
 }

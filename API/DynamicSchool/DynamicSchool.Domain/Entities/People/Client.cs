@@ -12,7 +12,8 @@ namespace DynamicSchool.Domain.Entities.People
         public string Document { get; private set; }
         public string Email { get; private set; }
         public string Cellphone { get; private set; }
-        public DateTime Birthday { get; private set; }        
+        public DateTime Birthday { get; private set; }    
+       
 
 
         protected Client(string name, string document, string cellPhone, DateTime birthDate)
