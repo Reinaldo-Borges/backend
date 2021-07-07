@@ -6,11 +6,14 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\" />
+    <ProjectReference Include="..\DynamicSchool.Core\DynamicSchool.Core.csproj" />
+    <ProjectReference Include="..\DynamicSchool.Domain\DynamicSchool.Domain.csproj" />
+    <ProjectReference Include="..\DynamicSchool.Infra.Data\DynamicSchool.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

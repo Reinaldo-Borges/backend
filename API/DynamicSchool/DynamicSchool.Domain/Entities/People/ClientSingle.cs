@@ -6,7 +6,7 @@ namespace DynamicSchool.Domain.Entities.People
 {
     public class ClientSingle : Client
     {
-        protected override ClientTypeEnum clientType => ClientTypeEnum.Single;
+        protected override ClientTypeEnum clientType => ClientTypeEnum.Simple;
         public Client ClientOriginal { get; private set; }
        
 

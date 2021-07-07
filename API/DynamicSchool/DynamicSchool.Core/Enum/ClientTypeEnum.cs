@@ -4,6 +4,6 @@
     {
         Owner = 1,
         Partener = 2,
-        Single = 3
+        Simple = 3
     }
 }

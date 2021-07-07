@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "DynamicSchool.Domain/1.0.0": {
+        "dependencies": {
+          "DynamicSchool.Core": "1.0.0"
+        },
+        "runtime": {
+          "DynamicSchool.Domain.dll": {}
+        }
+      },
+      "DynamicSchool.Core/1.0.0": {
+        "runtime": {
+          "DynamicSchool.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DynamicSchool.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DynamicSchool.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

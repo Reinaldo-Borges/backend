@@ -1,0 +1,17 @@
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.csproj.AssemblyReference.cache
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.AssemblyInfoInputs.cache
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.AssemblyInfo.cs
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.csproj.CoreCompileInputs.cache
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Infra.Data.deps.json
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Infra.Data.dll
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\ref\DynamicSchool.Infra.Data.dll
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Infra.Data.pdb
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Core.dll
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Domain.dll
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Domain.pdb
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Core.pdb
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.csproj.CopyComplete
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.dll
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\ref\DynamicSchool.Infra.Data.dll
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.pdb
