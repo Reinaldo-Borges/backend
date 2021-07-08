@@ -1,5 +1,6 @@
 ﻿using DynamicSchool.Domain.DTO.People;
 using DynamicSchool.Domain.Entities.People;
+using DynamicSchool.Domain.Intefaces.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace DynamicSchool.API.Interfaces
     public interface IPeopleService
     {
         Task<ClientDTO> GetClientById(Guid id);
-        Task Add(Client client);
+        Task Add(IClient client);
     }
 }

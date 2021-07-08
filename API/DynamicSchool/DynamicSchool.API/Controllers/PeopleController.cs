@@ -1,6 +1,5 @@
 ﻿using DynamicSchool.API.Interfaces;
 using DynamicSchool.API.Model.Response;
-using DynamicSchool.Domain.Entities.People;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -12,13 +11,14 @@ namespace DynamicSchool.API.Controllers
     public class PeopleController : ControllerBase
     {
         private readonly IPeopleService _service;
+      
 
         public PeopleController(IPeopleService service)
         {
             _service = service;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("Client/{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
             var client = await _service.GetClientById(id);
@@ -29,11 +29,9 @@ namespace DynamicSchool.API.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost("Client")]
         public async Task<IActionResult> Post(ClientRequest client)
         {
-
-
             await _service.Add(client);
 
             return Ok(client);

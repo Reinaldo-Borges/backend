@@ -24,19 +24,18 @@ namespace DynamicSchool.Infra.Data.Data.Command.People
                          VALUES
                                (@Id, @ClientDocument, @Name, @Email, @Cellphone, @Birthday, @ClientTypeId, @ClientOrigin)";
 
-            var parametros = new { 
-                Id = client.Id, 
+            var parametros = new {
+                Id = client.Id,
                 ClientDocument = client.Document,
                 Name = client.Name,
+                Email = client.Email,
                 CellPhone = client.Cellphone,
                 Birthday = client.Birthday,
-                ClientTypeId = 1
-                //ClientOrigin = client.cli
+                ClientTypeId = client.clientType,
+                ClientOrigin = client.ClientOrigin
             };
 
             _connection.Execute(sql, parametros, _transaction);
-        }
-
-    
+        }    
     }
 }

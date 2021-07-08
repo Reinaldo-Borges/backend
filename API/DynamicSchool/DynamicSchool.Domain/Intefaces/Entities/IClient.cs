@@ -1,10 +1,9 @@
 ﻿using DynamicSchool.Core.Enum;
-using DynamicSchool.Domain.Intefaces.Entities;
 using System;
 
-namespace DynamicSchool.API.Model.Response
+namespace DynamicSchool.Domain.Intefaces.Entities
 {
-    public class ClientRequest : IClient
+    public interface IClient
     {
         public Guid Id { get; set; }
         public string Document { get; set; }
@@ -14,6 +13,5 @@ namespace DynamicSchool.API.Model.Response
         public DateTime Birthday { get; set; }
         public ClientTypeEnum ClientTypeId { get; set; }
         public Guid? ClientOrigin { get; set; }
-        
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DynamicSchool.API.Interfaces;
 using DynamicSchool.API.Services;
+using DynamicSchool.Domain.Factories;
 using DynamicSchool.Domain.Inteface.UoW;
 using DynamicSchool.Infra.Data.infrastructure.UoW;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,7 @@ namespace DynamicSchool.API.Setup
         {
 
             services.AddScoped<IPeopleService, PeopleService>();
+            services.AddScoped<IClientFactory, ClientFactory>();          
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IDbConnection>(x => new SqlConnection(configuration.GetConnectionString("SqlConnection")));
