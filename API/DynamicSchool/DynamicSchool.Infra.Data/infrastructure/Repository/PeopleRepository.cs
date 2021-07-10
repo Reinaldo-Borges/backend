@@ -29,5 +29,15 @@ namespace DynamicSchool.Infra.Data.infrastructure.Repository
         {
             await new CommandClient(_context, _transaction).Add(client);
         }
+
+        public async Task Modify(Client client)
+        {
+            await new CommandClient(_context, _transaction).Modify(client);
+        }
+
+        public async Task ChangeStatus(Guid id, bool status)
+        {
+            await new CommandClient(_context, _transaction).ChangeStatus(id, status);
+        }
     }
 }

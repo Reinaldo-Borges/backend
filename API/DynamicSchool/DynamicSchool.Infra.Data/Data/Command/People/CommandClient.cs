@@ -1,12 +1,12 @@
 ﻿using Dapper;
 using DynamicSchool.Domain.Entities.People;
-using DynamicSchool.Domain.Intefaces.Command.People;
+using System;
 using System.Data;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.Infra.Data.Data.Command.People
 {
-    public class CommandClient : ICommandClient
+    public class CommandClient 
     {
         private readonly IDbConnection _connection;
         private readonly IDbTransaction _transaction;
@@ -36,6 +36,48 @@ namespace DynamicSchool.Infra.Data.Data.Command.People
             };
 
             _connection.Execute(sql, parametros, _transaction);
-        }    
+        }
+
+        public async Task Modify(Client client)
+        {
+            var sql = @"UPDATE Client
+                               set ClientDocument = @ClientDocument, 
+                                   Name =  @Name, 
+                                   Email = @Email, 
+                                   Cellphone = @Cellphone, 
+                                   Birthday = @Birthday
+                        WHERE Id = @Id";
+
+            var parametros = new
+            {
+                Id = client.Id,
+                ClientDocument = client.Document,
+                Name = client.Name,
+                Email = client.Email,
+                CellPhone = client.Cellphone,
+                Birthday = client.Birthday,
+                Status = client.StatusEntity
+            };
+
+            _connection.Execute(sql, parametros, _transaction);
+        }
+
+        public async Task ChangeStatus(Guid id, bool status)
+        {
+            var sql = @"UPDATE Client
+                               set Status = @Status
+                        WHERE Id = @Id";
+
+            //Fazer uma tabela historico do status
+
+            var parametros = new
+            {
+                Status = status,
+                Id = id
+            };
+
+            _connection.Execute(sql, parametros, _transaction);
+        }
+
     }
 }

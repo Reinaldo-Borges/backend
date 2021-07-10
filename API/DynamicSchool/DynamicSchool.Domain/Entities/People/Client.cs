@@ -38,6 +38,12 @@ namespace DynamicSchool.Domain.Entities.People
             return this;
         }
 
+        public T SetId<T>(Guid id) where T : Client
+        {
+            if(id != Guid.Empty) Id = id;
+            return this as T;
+        }
+
         protected virtual void Validate()
         {
             Assertion.HasValue(Name, "The property Name can't be void");

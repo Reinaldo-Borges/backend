@@ -1,13 +1,12 @@
 ﻿using Dapper;
 using DynamicSchool.Domain.DTO.People;
-using DynamicSchool.Domain.Intefaces.Query.People;
 using System;
 using System.Data;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.Infra.Data.Data.Query.People
 {
-    public class QueryClient : IQueryClient
+    public class QueryClient 
     {
         private readonly IDbConnection _connection;
         private readonly IDbTransaction _transaction;

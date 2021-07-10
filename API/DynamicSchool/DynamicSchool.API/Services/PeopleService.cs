@@ -1,5 +1,6 @@
 ﻿using DynamicSchool.API.Interfaces;
 using DynamicSchool.Domain.DTO.People;
+using DynamicSchool.Domain.Entities.People;
 using DynamicSchool.Domain.Factories;
 using DynamicSchool.Domain.Inteface.UoW;
 using DynamicSchool.Domain.Intefaces.Entities;
@@ -38,6 +39,26 @@ namespace DynamicSchool.API.Services
             {
                 await _unitOfWork.PeopleRepository.Add(clientBuilt);
                 _unitOfWork.Commit();            
+            }
+        }
+
+        public async Task Modify(IClient client)
+        {
+            var clientBuilt = _factory.Buider(client);
+
+            using (_unitOfWork.BeginTransaction())
+            {
+                await _unitOfWork.PeopleRepository.Modify(clientBuilt);
+                _unitOfWork.Commit();
+            }
+        }
+
+        public async Task ChangeStatus(Guid id, bool status)
+        {
+            using (_unitOfWork.BeginTransaction())
+            {
+                await _unitOfWork.PeopleRepository.ChangeStatus(id, status);
+                _unitOfWork.Commit();
             }
         }
     }

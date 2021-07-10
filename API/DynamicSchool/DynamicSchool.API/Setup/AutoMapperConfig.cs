@@ -1,13 +1,17 @@
-﻿using AutoMapper;
+﻿using DynamicSchool.API.Model.Response;
+using DynamicSchool.Domain.Entities.People;
 using System;
+using AutoMapper;
+
 
 namespace DynamicSchool.API.Setup
 {
-    public class AutoMapperConfig : Profile
+    public class AutoMapperConfig : AutoMapper.Profile
     {
         public AutoMapperConfig()
         {
-            CreateMap<Object, Object>().ReverseMap();
+            
+            CreateMap<ClientRequest, Client>().ReverseMap();
         }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using DynamicSchool.Domain.DTO.People;
 using DynamicSchool.Domain.Entities.People;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.Domain.Inteface.Repository
@@ -12,6 +9,8 @@ namespace DynamicSchool.Domain.Inteface.Repository
     {
         Task<ClientDTO> GetClientById(Guid id);
         Task Add(Client client);
+        Task Modify(Client client);
+        Task ChangeStatus(Guid id, bool status);
 
     }
 }
