@@ -1,6 +1,6 @@
 ﻿using DynamicSchool.Core.DomainObjects;
-using DynamicSchool.Domain.Entities.People;
 using DynamicSchool.Domain.Inteface;
+using System;
 
 namespace DynamicSchool.Domain.Entities.Courses
 {
@@ -8,12 +8,12 @@ namespace DynamicSchool.Domain.Entities.Courses
     {      
         public string Name { get; set; }
         public string Description { get; set; }
-        public Teacher Teacher { get; set; } 
+        public Guid TeacherId { get; set; } 
 
-        public Course(string name, Teacher teacher)
+        public Course(string name, Guid teacherId)
         {
             Name = name;
-            Teacher = teacher;
+            TeacherId = teacherId;
 
             Validate();
         }
@@ -29,7 +29,7 @@ namespace DynamicSchool.Domain.Entities.Courses
         private void Validate()
         {
             Assertion.HasValue(Name, "The property Name can't be void");
-            Assertion.IsNotNull(Teacher, "The Taecher can't be null");
+            Assertion.IsTrue(TeacherId == Guid.Empty, "The property TeacherId can't be void");
         }
     }
 }

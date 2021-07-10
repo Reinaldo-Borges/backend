@@ -13,9 +13,8 @@ namespace DynamicSchool.API.Model.Response
         public string Cellphone { get; set; }
         public DateTime Birthday { get; set; }
         public ClientTypeEnum ClientTypeId { get; set; }
-        public Guid? ClientOrigin { get; set; }        
-        public DateTime DataCriacao { get; set; }
-        public bool StatusEntity { get; set; }
+        public Guid? ClientOrigin { get; set; }  
+        public StatusEntityEnum StatusEntity { get; set; }
 
     }
 }

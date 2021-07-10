@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using DynamicSchool.API.Interfaces;
 using DynamicSchool.API.Model.Response;
+using DynamicSchool.Core.Enum;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
-namespace DynamicSchool.API.Controllers
+namespace DynamicSchool.API.Controllers.People
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -53,9 +54,9 @@ namespace DynamicSchool.API.Controllers
         [HttpPatch("status")]
         public async Task<IActionResult> Patch(ClientRequest client)
         {
-
-            await _service.ChangeStatus(client.Id, client.StatusEntity);
-
+            
+            await _service.ChangeStatus(client.Id, true);
+            
             return Ok(client);
 
         }

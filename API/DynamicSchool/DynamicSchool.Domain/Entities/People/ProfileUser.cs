@@ -2,12 +2,12 @@
 
 namespace DynamicSchool.Domain.Entities.People
 {
-    public class Profile : Entity
+    public class ProfileUser : Entity
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
 
-        public Profile(string name, string description)
+        public ProfileUser(string name, string description)
         {
             Name = name;
             Description = description;

@@ -7,10 +7,10 @@ namespace DynamicSchool.Domain.Entities.People
        
         public string Login { get; private set; }
         public string Password { get; private set; }
-        public Profile Profile { get; private set; }
+        public ProfileUser Profile { get; private set; }
         public Client Client { get; private set; }
 
-        public User(string login, string password, Profile profile, Client client)
+        public User(string login, string password, ProfileUser profile, Client client)
         {           
             Login = login;
             Password = password;

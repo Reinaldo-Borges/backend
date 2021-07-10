@@ -16,6 +16,7 @@ namespace DynamicSchool.API.Setup
         {
 
             services.AddScoped<IPeopleService, PeopleService>();
+            services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<IClientFactory, ClientFactory>();          
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();

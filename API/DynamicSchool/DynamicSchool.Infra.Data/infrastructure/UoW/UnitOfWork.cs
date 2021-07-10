@@ -22,6 +22,12 @@ namespace DynamicSchool.Infra.Data.infrastructure.UoW
             get => _peopleRepository ?? (_peopleRepository = new PeopleRepository(_context, _transaction));
         }
 
+        private ICourseRepository _courseRepository;
+        public ICourseRepository CourseRepository
+        {
+            get => _courseRepository ?? (_courseRepository = new CourseRepository(_context, _transaction));
+        }
+
         public IDisposable BeginTransaction()
         {
             _transaction?.Dispose();

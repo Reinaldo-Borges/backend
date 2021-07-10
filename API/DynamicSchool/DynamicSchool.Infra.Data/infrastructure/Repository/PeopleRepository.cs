@@ -1,4 +1,6 @@
-﻿using DynamicSchool.Domain.DTO.People;
+﻿using DynamicSchool.Core.Enum;
+using DynamicSchool.Domain.DTO.People;
+using DynamicSchool.Domain.Entities.Courses;
 using DynamicSchool.Domain.Entities.People;
 using DynamicSchool.Domain.Inteface.Repository;
 using DynamicSchool.Infra.Data.Data.Command.People;
@@ -39,5 +41,12 @@ namespace DynamicSchool.Infra.Data.infrastructure.Repository
         {
             await new CommandClient(_context, _transaction).ChangeStatus(id, status);
         }
+
+        public async Task Add(Teacher teacher)
+        {
+            await new CommandTeacher(_context, _transaction).Add(teacher);
+        }
+
+     
     }
 }

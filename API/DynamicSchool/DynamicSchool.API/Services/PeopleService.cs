@@ -1,4 +1,5 @@
 ﻿using DynamicSchool.API.Interfaces;
+using DynamicSchool.Core.Enum;
 using DynamicSchool.Domain.DTO.People;
 using DynamicSchool.Domain.Entities.People;
 using DynamicSchool.Domain.Factories;
@@ -58,6 +59,15 @@ namespace DynamicSchool.API.Services
             using (_unitOfWork.BeginTransaction())
             {
                 await _unitOfWork.PeopleRepository.ChangeStatus(id, status);
+                _unitOfWork.Commit();
+            }
+        }
+
+        public async Task Add(Teacher teacher)
+        {
+            using (_unitOfWork.BeginTransaction())
+            {
+                await _unitOfWork.PeopleRepository.Add(teacher);
                 _unitOfWork.Commit();
             }
         }
