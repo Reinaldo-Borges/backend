@@ -1,7 +1,6 @@
 ﻿using DynamicSchool.API.Interfaces;
 using DynamicSchool.Domain.Entities.Courses;
 using DynamicSchool.Domain.Inteface.UoW;
-using System;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.API.Services
@@ -21,6 +20,26 @@ namespace DynamicSchool.API.Services
                 await _unitOfWork.CourseRepository.Add(course);
 
                 _unitOfWork.Commit();                
+            }
+        }
+
+        public async Task Add(Level level)
+        {
+            using (_unitOfWork.BeginTransaction())
+            {
+                await _unitOfWork.CourseRepository.Add(level);
+
+                _unitOfWork.Commit();
+            }
+        }
+
+        public async Task Add(Lesson lesson)
+        {
+            using (_unitOfWork.BeginTransaction())
+            {
+                await _unitOfWork.CourseRepository.Add(lesson);
+
+                _unitOfWork.Commit();
             }
         }
     }

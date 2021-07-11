@@ -9,3 +9,4 @@ C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Core\obj\Debug\net5.0\
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Core\obj\Debug\net5.0\DynamicSchool.Core.dll
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Core\obj\Debug\net5.0\ref\DynamicSchool.Core.dll
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Core\obj\Debug\net5.0\DynamicSchool.Core.pdb
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Core\obj\Debug\net5.0\DynamicSchool.Core.csproj.AssemblyReference.cache

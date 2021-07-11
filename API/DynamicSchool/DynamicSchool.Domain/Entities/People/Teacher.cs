@@ -29,15 +29,13 @@ namespace DynamicSchool.Domain.Entities.People
 
         public Teacher SetResume(string resume)
         {
-            Assertion.HasValue(Resume, "The property CellPhone can't be void");
-
             Resume = resume;
             return this;
         }
 
         public Teacher SetEmail(string email)
         {
-            Assertion.HasValue(Email, "The property Email can't be void");
+            Assertion.HasValue(email, "The property Email can't be void");
 
             Email = email;
             return this;

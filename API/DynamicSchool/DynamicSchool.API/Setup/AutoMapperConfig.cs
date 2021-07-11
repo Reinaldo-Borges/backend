@@ -9,14 +9,6 @@ namespace DynamicSchool.API.Setup
     {
         public AutoMapperConfig()
         {
-            
-            CreateMap<TeacherRequest, Teacher>()
-                .ConstructUsing(x => new Teacher(x.Name, x.Document, x.CellPhone, x.BirthDay, x.ClientOrigin));
-
-            CreateMap<CourseRequest, Course>()
-               .ConstructUsing(x => new Course(x.Name, x.TeacherId));
-
-
         }
     }
 }

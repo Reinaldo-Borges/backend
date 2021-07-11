@@ -33,5 +33,42 @@ namespace DynamicSchool.Infra.Data.Data.Command.Courses
 
             _connection.Execute(sql, parametros, _transaction);
         }
+
+        public async Task Add(Level level)
+        {
+            var sql = @"INSERT INTO Level   
+                               (Id, Name, Code, CourseId)
+                         VALUES
+                               (@Id, @Name, @Code, @CourseId)";
+
+            var parametros = new
+            {
+                Id = level.Id,
+                Name = level.Name,
+                Code = level.Code,
+                CourseId = level.CourseId
+            };
+
+            _connection.Execute(sql, parametros, _transaction);
+        }
+
+        public async Task Add(Lesson lesson)
+        {
+            var sql = @"INSERT INTO Lesson
+                               (Id, Name, Description, Image, LevelId)
+                         VALUES
+                               (@Id, @Name, @Description, @Image, @LevelId)";
+
+            var parametros = new
+            {
+                Id = lesson.Id,
+                Name = lesson.Name,
+                Description = lesson.Description,
+                Image = lesson.Image,
+                LevelId = lesson.LevelId
+            };
+
+            _connection.Execute(sql, parametros, _transaction);
+        }
     }
 }

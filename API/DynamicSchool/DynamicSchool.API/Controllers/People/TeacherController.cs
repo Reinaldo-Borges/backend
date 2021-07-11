@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DynamicSchool.API.Extensions;
 using DynamicSchool.API.Interfaces;
 using DynamicSchool.API.Model.Request;
 using DynamicSchool.Domain.Entities.People;
@@ -24,7 +25,7 @@ namespace DynamicSchool.API.Controllers.People
         [HttpPost]
         public async Task<ActionResult<Teacher>> Post(TeacherRequest teacher)
         {
-            var teacherBuilt = _mapper.Map<Teacher>(teacher);
+            var teacherBuilt = teacher.ToTeacher();
 
             await _peopleService.Add(teacherBuilt);
 

@@ -6,5 +6,7 @@ namespace DynamicSchool.Domain.Inteface.Repository
     public interface ICourseRepository
     {
         Task Add(Course couse);
+        Task Add(Level level);
+        Task Add(Lesson lesson);
     }
 }

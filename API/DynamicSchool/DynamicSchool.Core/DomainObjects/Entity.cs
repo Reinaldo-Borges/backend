@@ -13,8 +13,7 @@ namespace DynamicSchool.Core.DomainObjects
         {
             Id =  Guid.NewGuid();
             CreationDate = new DateTime();
-        }  
-
+        }        
 
     }
 }

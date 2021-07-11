@@ -21,6 +21,15 @@ namespace DynamicSchool.Infra.Data.infrastructure.Repository
         {
             await new CourseCommand(_context, _transaction).Add(course);
         }
-        
+
+        public async Task Add(Level level)
+        {
+            await new CourseCommand(_context, _transaction).Add(level);
+        }
+
+        public async Task Add(Lesson lesson)
+        {
+            await new CourseCommand(_context, _transaction).Add(lesson);
+        }
     }
 }

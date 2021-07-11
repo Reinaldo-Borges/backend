@@ -19,9 +19,7 @@ namespace DynamicSchool.Domain.Entities.Courses
         }
 
         public Course SetDescription(string description)
-        {
-            Assertion.HasValue(Description, "The property Description can't be void");
-
+        {  
             Description = description;
             return this;
         }

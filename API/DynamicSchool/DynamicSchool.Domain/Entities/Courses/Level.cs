@@ -1,4 +1,5 @@
 ﻿using DynamicSchool.Core.DomainObjects;
+using System;
 using System.Collections.Generic;
 
 namespace DynamicSchool.Domain.Entities.Courses
@@ -9,24 +10,30 @@ namespace DynamicSchool.Domain.Entities.Courses
         public string Code { get; private set; }
         private List<Lesson> _lessons { get; set; }
         public IReadOnlyCollection<Lesson> Classes => _lessons;
-        public Course Course { get; set; }
+        public Guid CourseId { get; set; }
 
-        public Level(string name, Course course)
+        public Level(string name, Guid courseId)
         {
             Name = name;
-            Course = course;
+            CourseId = courseId;
         }
 
-        public Level SetClasses(List<Lesson> lessons)
+        public Level SetLesson(List<Lesson> lessons)
         {
             _lessons = lessons;
+            return this;
+        }
+
+        public Level SetCode(string code)
+        {
+            Code = code;
             return this;
         }
 
         private void Validate()
         {
             Assertion.HasValue(Name, "The property Name can't be void");
-            Assertion.IsNotNull(Course, "The Course can't be null");
+            Assertion.IsFalse(CourseId == Guid.Empty, "The Course can't be null");
         }
     }
 }
