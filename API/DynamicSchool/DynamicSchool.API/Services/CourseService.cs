@@ -1,6 +1,9 @@
 ﻿using DynamicSchool.API.Interfaces;
+using DynamicSchool.Domain.DTO.Course;
 using DynamicSchool.Domain.Entities.Courses;
 using DynamicSchool.Domain.Inteface.UoW;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.API.Services
@@ -40,6 +43,28 @@ namespace DynamicSchool.API.Services
                 await _unitOfWork.CourseRepository.Add(lesson);
 
                 _unitOfWork.Commit();
+            }
+        }
+
+        public async Task<IEnumerable<CourseDTO>> List(Guid id)
+        {
+            using (_unitOfWork.BeginTransaction())
+            {
+                var courses = await _unitOfWork.CourseRepository.List(id);
+                _unitOfWork.Commit();
+
+                return courses;
+            }
+        }
+
+        public async Task<IEnumerable<LevelDTO>> ListLevel(Guid id)
+        {
+            using (_unitOfWork.BeginTransaction())
+            {
+                var levels = await _unitOfWork.CourseRepository.ListLevel(id);
+                _unitOfWork.Commit();
+
+                return levels;
             }
         }
     }

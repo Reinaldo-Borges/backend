@@ -1,6 +1,10 @@
-﻿using DynamicSchool.Domain.Entities.Courses;
+﻿using DynamicSchool.Domain.DTO.Course;
+using DynamicSchool.Domain.Entities.Courses;
 using DynamicSchool.Domain.Inteface.Repository;
 using DynamicSchool.Infra.Data.Data.Command.Courses;
+using DynamicSchool.Infra.Data.Data.Query.Courses;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -30,6 +34,16 @@ namespace DynamicSchool.Infra.Data.infrastructure.Repository
         public async Task Add(Lesson lesson)
         {
             await new CourseCommand(_context, _transaction).Add(lesson);
+        }
+
+        public async Task<IEnumerable<CourseDTO>> List(Guid id)
+        {
+            return await new CourseQuery(_context, _transaction).List(id);
+        }
+
+        public async Task<IEnumerable<LevelDTO>> ListLevel(Guid id)
+        {
+            return await new LevelQuery(_context, _transaction).List(id);
         }
     }
 }

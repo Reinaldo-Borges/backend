@@ -16,8 +16,4 @@
     <ProjectReference Include="..\DynamicSchool.Infra.Data\DynamicSchool.Infra.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Model\Response\" />
-  </ItemGroup>
-
 </Project>

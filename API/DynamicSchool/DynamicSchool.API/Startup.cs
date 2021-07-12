@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace DynamicSchool.API
 {
@@ -23,7 +25,10 @@ namespace DynamicSchool.API
         {
 
             services.AddMvc(option => option.EnableEndpointRouting = false)
-                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+                 .AddNewtonsoftJson(opt => {
+                      //opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                      opt.SerializerSettings.Converters.Add(new StringEnumConverter());
+                 });
 
             services.AddSwaggerGen(c =>
             {
@@ -32,6 +37,7 @@ namespace DynamicSchool.API
 
             services.AddAutoMapper(typeof(Startup));
             services.ResolveDependencies(Configuration);
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

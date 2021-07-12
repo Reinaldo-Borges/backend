@@ -9,8 +9,7 @@ namespace DynamicSchool.API.Extensions
         public static Course ToCourse(this CourseRequest courseRequest)
         {
             return new Course(courseRequest.Name, courseRequest.TeacherId)
-                        .SetDescription(courseRequest.Description);
-                
+                        .SetDescription(courseRequest.Description);                
         }
 
         public static Level ToLevel(this LevelRequest levelRequest)
@@ -25,11 +24,6 @@ namespace DynamicSchool.API.Extensions
                         .SetDescription(lessonRequest.Description)
                         .SetImage(lessonRequest.Image);
         }
-
-
-
-
-
 
         public static Teacher ToTeacher(this TeacherRequest teacherRequest)
         {

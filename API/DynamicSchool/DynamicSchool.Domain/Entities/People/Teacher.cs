@@ -46,7 +46,7 @@ namespace DynamicSchool.Domain.Entities.People
             Assertion.HasValue(Name, "The property Name can't be void");
             Assertion.HasValue(Document, "The property Document can't be void");          
             Assertion.HasValue(Cellphone, "The property CellPhone can't be void");
-            Assertion.IsNotNull(ClientOrigin, "The property ClientOrigin can't be void");
+            Assertion.IsTrue(ClientOrigin != Guid.Empty, "The property ClientOrigin can't be void");
         }
     }
 }

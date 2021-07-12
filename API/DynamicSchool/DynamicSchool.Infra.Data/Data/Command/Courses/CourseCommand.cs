@@ -1,5 +1,7 @@
 ﻿using Dapper;
 using DynamicSchool.Domain.Entities.Courses;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -69,6 +71,6 @@ namespace DynamicSchool.Infra.Data.Data.Command.Courses
             };
 
             _connection.Execute(sql, parametros, _transaction);
-        }
+        }     
     }
 }

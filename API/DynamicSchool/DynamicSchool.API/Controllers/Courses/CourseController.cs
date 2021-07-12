@@ -2,8 +2,11 @@
 using DynamicSchool.API.Extensions;
 using DynamicSchool.API.Interfaces;
 using DynamicSchool.API.Model.Request;
+using DynamicSchool.API.Model.Response;
 using DynamicSchool.Domain.Entities.Courses;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.API.Controllers.Courses
@@ -49,6 +52,32 @@ namespace DynamicSchool.API.Controllers.Courses
             _courseService.Add(lessonBuilt);
 
             return lessonBuilt;
+        }
+
+        [HttpGet("/{id}")]
+        public async Task<ActionResult<CourseResponse>> GetCourse(Guid id)
+        {
+            if (id == Guid.Empty) return BadRequest();
+
+            var courses = await _courseService.List(id);
+
+            if (!courses.Any()) return NotFound();
+
+            var course = courses.ToCourseResponse();
+            return course;
+        }
+
+        [HttpGet("/level/{id}")]
+        public async Task<ActionResult<LevelResponse>> GetLevel(Guid id)
+        {
+            if (id == Guid.Empty) return BadRequest();
+
+            var levels = await _courseService.ListLevel(id);
+
+            if (!levels.Any()) return NotFound();
+
+            var level = levels.ToLevelResponse();
+            return level;
         }
     }
 }
