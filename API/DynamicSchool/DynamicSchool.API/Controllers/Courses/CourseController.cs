@@ -4,6 +4,7 @@ using DynamicSchool.API.Interfaces;
 using DynamicSchool.API.Model.Request;
 using DynamicSchool.API.Model.Response;
 using DynamicSchool.Domain.Entities.Courses;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -25,26 +26,34 @@ namespace DynamicSchool.API.Controllers.Courses
         }
 
         [HttpPost("/new")]
+        [ProducesResponseType(typeof(Course), StatusCodes.Status201Created)]
+        [ProducesResponseType((int)StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Course>> Create(CourseRequest course)
-        {
-            var courseBuilt = course.ToCourse();
+        { 
+            var courseBuilt = course.ToCourse();           
 
-            _courseService.Add(courseBuilt);
+            await _courseService.Add(courseBuilt);
 
-            return courseBuilt;
+            return CreatedAtAction("Post", courseBuilt);
         }
 
-        [HttpPost("/level")]
+        [HttpPost("/level/new")]
+        [ProducesResponseType(typeof(Level), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Level>> Create(LevelRequest level)
         {
             var levelBuilt = level.ToLevel();
 
-            _courseService.Add(levelBuilt);
+            await _courseService.Add(levelBuilt);
 
-            return levelBuilt;
+            return CreatedAtAction("Post", levelBuilt);
         }
 
-        [HttpPost("/lesson")]
+        [HttpPost("/lesson/new")]
+        [ProducesResponseType(typeof(CourseResponse), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Lesson>> Create(LessonRequest lesson)
         {
             var lessonBuilt = lesson.ToLesson();
@@ -68,6 +77,10 @@ namespace DynamicSchool.API.Controllers.Courses
         }
 
         [HttpGet("/level/{id}")]
+        [ProducesResponseType(typeof(LevelResponse), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<LevelResponse>> GetLevel(Guid id)
         {
             if (id == Guid.Empty) return BadRequest();

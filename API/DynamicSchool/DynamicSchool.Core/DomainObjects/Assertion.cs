@@ -198,14 +198,14 @@ namespace DynamicSchool.Core.DomainObjects
         }
         public static void IsFalse(bool boolvalue, string message)
         {
-            if (!boolvalue)
+            if (boolvalue)
             {
                 throw new DomainException(message);
             }
         }
         public static void IsTrue(bool boolvalue, string message)
         {
-            if (boolvalue)
+            if (!boolvalue)
             {
                 throw new DomainException(message);
             }

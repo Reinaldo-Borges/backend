@@ -11,6 +11,7 @@ namespace DynamicSchool.API.Model.Response
         public string Description { get; set; }
         public DateTime CreationDate { get; set; }
         public StatusEntityEnum Status { get; set; }
+        public Guid TeacherId { get; set; }
         public List<LevelResponse> Levels { get; set; }
     }
 }

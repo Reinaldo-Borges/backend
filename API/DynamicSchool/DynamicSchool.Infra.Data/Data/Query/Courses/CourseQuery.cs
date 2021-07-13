@@ -37,10 +37,11 @@ namespace DynamicSchool.Infra.Data.Data.Query.Courses
 	                    ls.Description LessonDescription,
 	                    ls.Image LessonImage,
                         ls.CreationDate LessonCreationDate,
-	                    ls.Status LessonSatus
+	                    ls.Status LessonStatus,
+                        ls.LevelId LessonLevelId
                 from Course cs 
                 INNER JOIN Level lv on lv.CourseId = cs.Id 
-                INNER JOIN Lesson ls  on ls.LevelId = lv.Id
+                LEFT JOIN Lesson ls  on ls.LevelId = lv.Id
                 where cs.Id = @Id";
 
             var parametros = new

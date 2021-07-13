@@ -21,5 +21,6 @@ namespace DynamicSchool.Domain.DTO.Course
         public string LessonImage { get; set; }
         public DateTime LessonCreationDate { get; set; }
         public int LessonStatus { get; set; }
+        public Guid LessonLevelId { get; set; }
     }
 }

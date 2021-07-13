@@ -35,9 +35,7 @@ namespace DynamicSchool.API.Extensions
         }
 
         public static CourseResponse ToCourseResponse(this IEnumerable<CourseDTO> courses)
-        {
-            var levels = courses;
-            var lessons = courses;
+        {           
             var course = courses.GroupBy(gb => new { gb.Id, gb.Name, gb.Description, gb.CreationDate, gb.Status, gb.TeacherId })
                 .Select(s => new CourseResponse()
                 {
@@ -46,15 +44,17 @@ namespace DynamicSchool.API.Extensions
                     Description = s.Key.Description,                   
                     CreationDate = s.Key.CreationDate,
                     Status = (StatusEntityEnum) s.Key.Status,
-                    Levels = levels.GroupBy(b => new { b.LevelId, b.LevelName, b.LevelCode, b.LevelCreationDate, b.LevelStatus})
+                    TeacherId = s.Key.TeacherId,
+                    Levels = courses.GroupBy(b => new { b.LevelId, b.LevelName, b.LevelCode, b.LevelCreationDate, b.LevelStatus})                    
                     .Select(l => new LevelResponse()
                     {
                         Id = l.Key.LevelId,
                         Name = l.Key.LevelName,
                         Code = l.Key.LevelCode,
                         CreationDate = l.Key.LevelCreationDate,
-                        Status = (StatusEntityEnum) l.Key.LevelStatus,
-                        Lessons = lessons.Select(ls => new LessonResponse() { 
+                        Status = (StatusEntityEnum) l.Key.LevelStatus,                        
+                        Lessons = courses.Where(w => w.LevelId == l.Key.LevelId)
+                                .Select(ls => new LessonResponse() { 
                             Id = ls.LessonId,
                             Name = ls.LessonName,
                             Description = ls.LessonDescription,

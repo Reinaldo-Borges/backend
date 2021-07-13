@@ -24,6 +24,11 @@ namespace DynamicSchool.Domain.Entities.Courses
             return this;
         }
 
+        public Course setId(Guid id)
+        {
+            
+        }
+
         private void Validate()
         {
             Assertion.HasValue(Name, "The property Name can't be void");
