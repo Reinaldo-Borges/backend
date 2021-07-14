@@ -52,7 +52,7 @@ namespace DynamicSchool.API.Controllers.Courses
         [HttpPost("/lesson/new")]
         [ProducesResponseType(typeof(CourseResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Lesson>> Create(LessonRequest lesson)
         {
@@ -64,6 +64,10 @@ namespace DynamicSchool.API.Controllers.Courses
         }
 
         [HttpGet("/{id}")]
+        [ProducesResponseType(typeof(LevelResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<CourseResponse>> GetCourse(Guid id)
         {
             if (id == Guid.Empty) return BadRequest();
@@ -77,7 +81,7 @@ namespace DynamicSchool.API.Controllers.Courses
         }
 
         [HttpGet("/level/{id}")]
-        [ProducesResponseType(typeof(LevelResponse), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(LevelResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

@@ -13,7 +13,13 @@ namespace DynamicSchool.Core.DomainObjects
         {
             Id =  Guid.NewGuid();
             CreationDate = new DateTime();
-        }        
+        }   
+        
+        public T SetId<T>(Guid id) where T : Entity
+        {
+            if (id != Guid.Empty) Id = id;
+            return this as T;
+        }
 
     }
 }

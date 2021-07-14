@@ -8,6 +8,7 @@ namespace DynamicSchool.Domain.Entities.Courses
         public string Name { get; private set; }
         public string Description { get; private set; }
         public string Image { get; set; }
+        public string Time { get; set; }
         public Guid LevelId { get; set; }
 
         public Lesson(string name, Guid levelId)
@@ -25,6 +26,14 @@ namespace DynamicSchool.Domain.Entities.Courses
         public Lesson SetImage(string image)
         {
             Image = image;
+            return this;
+        }
+
+        public Lesson SetTime(int minute)
+        {
+            Assertion.MoreThanOrEqual(minute, 1, "The lesson con't have less one minute");
+
+            Time = $"{minute.ToString().PadLeft(2,'0')}:00";
             return this;
         }
 

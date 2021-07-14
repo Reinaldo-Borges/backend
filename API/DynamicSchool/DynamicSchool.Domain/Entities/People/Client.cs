@@ -17,8 +17,7 @@ namespace DynamicSchool.Domain.Entities.People
 
 
         protected Client(string name, string document, string cellPhone, DateTime birthDate)
-        {
-      
+        {      
             Name = name;
             Document = document;           
             Cellphone = cellPhone;
@@ -36,13 +35,7 @@ namespace DynamicSchool.Domain.Entities.People
 
             Email = email;
             return this;
-        }
-
-        public T SetId<T>(Guid id) where T : Client
-        {
-            if(id != Guid.Empty) Id = id;
-            return this as T;
-        }
+        }      
 
         protected virtual void Validate()
         {
@@ -51,7 +44,5 @@ namespace DynamicSchool.Domain.Entities.People
             Assertion.HasValue(Cellphone, "The property can't be void");       
 
         }
-
-
     }
 }

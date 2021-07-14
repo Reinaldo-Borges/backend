@@ -24,8 +24,7 @@ namespace DynamicSchool.Domain.Factories
                         .SetId<ClientSimple>(client.Id)
                         .SetEmail(client.Email);
                 default:
-                    throw new DomainException("There is not such type of client");
-                     
+                    throw new DomainException("There is not such type of client");                     
             }
         }
     }

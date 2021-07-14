@@ -9,30 +9,31 @@ namespace DynamicSchool.API.Extensions
         public static Course ToCourse(this CourseRequest courseRequest)
         {
             return new Course(courseRequest.Name, courseRequest.TeacherId)
-                        .SetDescription(courseRequest.Description);                
+                        .SetDescription(courseRequest.Description)
+                        .SetId<Course>(courseRequest.Id);
         }
 
         public static Level ToLevel(this LevelRequest levelRequest)
         {
             return new Level(levelRequest.Name, levelRequest.CourseId)
-                        .SetCode(levelRequest.Code);
+                        .SetCode(levelRequest.Code)
+                        .SetId<Level>(levelRequest.Id);
         }
 
         public static Lesson ToLesson(this LessonRequest lessonRequest)
         {
             return new Lesson(lessonRequest.Name, lessonRequest.LevelId)
                         .SetDescription(lessonRequest.Description)
-                        .SetImage(lessonRequest.Image);
+                        .SetImage(lessonRequest.Image)
+                        .SetId<Lesson>(lessonRequest.Id);
         }
 
         public static Teacher ToTeacher(this TeacherRequest teacherRequest)
         {
             return new Teacher(teacherRequest.Name, teacherRequest.Document, teacherRequest.CellPhone, teacherRequest.BirthDay, teacherRequest.ClientOrigin)
                         .SetEmail(teacherRequest.Email)
-                        .SetResume(teacherRequest.Resume);
+                        .SetResume(teacherRequest.Resume)
+                        .SetId<Teacher>(teacherRequest.Id);
         }
-
-
-
     }
 }
