@@ -1,4 +1,6 @@
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Infra.Data.deps.json
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Infra.Data.runtimeconfig.json
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Infra.Data.runtimeconfig.dev.json
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Infra.Data.dll
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\ref\DynamicSchool.Infra.Data.dll
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\bin\Debug\net5.0\DynamicSchool.Infra.Data.pdb
@@ -15,3 +17,4 @@ C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\n
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.dll
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\ref\DynamicSchool.Infra.Data.dll
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.pdb
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Infra.Data\obj\Debug\net5.0\DynamicSchool.Infra.Data.genruntimeconfig.cache

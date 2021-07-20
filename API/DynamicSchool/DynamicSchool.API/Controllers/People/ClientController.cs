@@ -55,7 +55,6 @@ namespace DynamicSchool.API.Controllers.People
 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut("modify")]
         public async Task<IActionResult> Put(ClientRequest client)
@@ -69,8 +68,7 @@ namespace DynamicSchool.API.Controllers.People
         }
 
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]    
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPatch("status")]
         public async Task<IActionResult> Patch(ClientRequest client)

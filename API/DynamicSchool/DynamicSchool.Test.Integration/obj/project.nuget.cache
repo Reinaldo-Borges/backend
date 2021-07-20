@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9XG1cYRPhpZU2BC5yzEgItYPQXAMV2hAWWNk+brh0p4gftaT63Sf/uOLgrcaYCq6oY0Xpbq80VKpeBmp/0b21g==",
+  "dgSpecHash": "rXrUeNGtZPFMyT6nVeop9R8TbSuxJn41ExaajQSP8KlX4m74KbLxmANuGnU5OS58ziGvTh9XneKPQe9wbmv/KA==",
   "success": true,
   "projectFilePath": "C:\\MyProjects\\git\\backend\\API\\DynamicSchool\\DynamicSchool.Test.Integration\\DynamicSchool.Test.Integration.csproj",
   "expectedPackageFiles": [

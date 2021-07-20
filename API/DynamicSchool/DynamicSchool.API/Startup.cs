@@ -1,3 +1,4 @@
+using DynamicSchool.API.Extensions;
 using DynamicSchool.API.Setup;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,8 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
-using System.Text.Json.Serialization;
 
 namespace DynamicSchool.API
 {
@@ -20,13 +19,14 @@ namespace DynamicSchool.API
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+       
         public void ConfigureServices(IServiceCollection services)
         {
+            services.BuildApplicationContext(Configuration);
+            services.BuildIdentityContext(Configuration);
 
             services.AddMvc(option => option.EnableEndpointRouting = false)
-                 .AddNewtonsoftJson(opt => {
-                      //opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                 .AddNewtonsoftJson(opt => {                      
                       opt.SerializerSettings.Converters.Add(new StringEnumConverter());
                  });
 
@@ -63,7 +63,7 @@ namespace DynamicSchool.API
                 endpoints.MapControllers();
             });
 
-
+            app.UseAuthentication();
             app.UseMvc();
         }
     }
