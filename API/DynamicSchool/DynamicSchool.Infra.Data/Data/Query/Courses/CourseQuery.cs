@@ -1,5 +1,8 @@
 ﻿using Dapper;
 using DynamicSchool.Domain.DTO.Course;
+using DynamicSchool.Domain.Entities.Courses;
+using DynamicSchool.Infra.Data.infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,15 +12,13 @@ namespace DynamicSchool.Infra.Data.Data.Query.Courses
 {
     public class CourseQuery
     {
-        private readonly IDbConnection _connection;
-        private readonly IDbTransaction _transaction;
+        private readonly ApplicationContext _context;
 
-        public CourseQuery(IDbConnection connection, IDbTransaction transaction)
+        public CourseQuery(ApplicationContext context)
         {
-            _connection = connection;
-            _transaction = transaction;
+            _context = context;
         }
-        
+
         public async Task<IEnumerable<CourseDTO>> List(Guid id)
         {
             var sql = @"select 
@@ -49,7 +50,11 @@ namespace DynamicSchool.Infra.Data.Data.Query.Courses
                 Id = id
             };
 
-            return await _connection.QueryAsync<CourseDTO>(sql, parametros, _transaction);
-        }
-    }
+            var course = await _context.Database.GetDbConnection()
+                .QueryAsync<CourseDTO>(sql, parametros);
+
+            return course;
+
+        }    
+     }
 }

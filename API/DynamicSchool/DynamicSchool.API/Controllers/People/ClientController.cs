@@ -46,8 +46,6 @@ namespace DynamicSchool.API.Controllers.People
         [HttpPost("new")]
         public async Task<IActionResult> Post(ClientRequest client)
         {
-            if (client.Id == Guid.Empty) return BadRequest();
-
             await _service.Add(client);
 
             return Ok();

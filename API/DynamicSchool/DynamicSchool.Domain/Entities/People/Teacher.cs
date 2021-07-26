@@ -7,12 +7,14 @@ namespace DynamicSchool.Domain.Entities.People
     public class Teacher : Entity
     {
         public string Name { get; private set; }
-        public string Document { get; private set; }
+        public virtual string Document { get;  set; }
         public string Email { get; private set; }
         public string Cellphone { get; private set; }
         public DateTime BirthDay { get; private set; }
         public string Resume { get; private set; }
         public Guid ClientOrigin { get; private set; }
+
+        public Teacher() { }
 
         public Teacher(string name, string document, string cellPhone, DateTime birthDay, Guid clientOrigin)
         {

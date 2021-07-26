@@ -22,54 +22,42 @@ namespace DynamicSchool.API.Services
         }      
 
         public async Task<ClientDTO> GetClientById(Guid id)
-        {
-            using (_unitOfWork.BeginTransaction())
-            {
-                var client = await _unitOfWork.PeopleRepository.GetClientById(id);
-                _unitOfWork.Commit();
+        {            
+            //var client = await _unitOfWork.PeopleRepository.GetClientById(id);
+            //_unitOfWork.Commit();
 
-                return client;
-            }            
+            return null;// client;                        
         }
 
         public async Task Add(IClient client)
         {
             var clientBuilt = _factory.Buider(client);
-
-            using (_unitOfWork.BeginTransaction())
-            {
-                await _unitOfWork.PeopleRepository.Add(clientBuilt);
-                _unitOfWork.Commit();            
-            }
+         
+            await _unitOfWork.PeopleRepository.Add(clientBuilt);
+            _unitOfWork.Commit();            
+            
         }
 
         public async Task Modify(IClient client)
         {
             var clientBuilt = _factory.Buider(client);
-
-            using (_unitOfWork.BeginTransaction())
-            {
-                await _unitOfWork.PeopleRepository.Modify(clientBuilt);
-                _unitOfWork.Commit();
-            }
+          
+            await _unitOfWork.PeopleRepository.Modify(clientBuilt);
+            _unitOfWork.Commit();            
         }
 
         public async Task ChangeStatus(Guid id, bool status)
         {
-            using (_unitOfWork.BeginTransaction())
-            {
-                await _unitOfWork.PeopleRepository.ChangeStatus(id, status);
-                _unitOfWork.Commit();
-            }
+           
+            //await _unitOfWork.PeopleRepository.ChangeStatus(id, status);
+            //_unitOfWork.Commit();
+            
         }
 
         public async Task Add(Teacher teacher)
-        {
-            using (_unitOfWork.BeginTransaction())
-            {
-                await _unitOfWork.PeopleRepository.Add(teacher);
-                _unitOfWork.Commit();
-            }
+        {            
+            await _unitOfWork.PeopleRepository.Add(teacher);
+            _unitOfWork.Commit();            
         }
     }
 }

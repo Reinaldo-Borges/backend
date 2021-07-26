@@ -1,62 +1,43 @@
 ﻿using DynamicSchool.Domain.Inteface.Repository;
 using DynamicSchool.Domain.Inteface.UoW;
+using DynamicSchool.Infra.Data.infrastructure.Context;
 using DynamicSchool.Infra.Data.infrastructure.Repository;
 using System;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace DynamicSchool.Infra.Data.infrastructure.UoW
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private readonly IDbConnection _context;
-        private IDbTransaction _transaction;
-
-        public UnitOfWork(IDbConnection context)
+        private readonly ApplicationContext _context;
+        public UnitOfWork(ApplicationContext context)
         {
-            _context = context;            
+            _context = context;
         }
 
         private IPeopleRepository _peopleRepository;
         public IPeopleRepository PeopleRepository
         {
-            get => _peopleRepository ?? (_peopleRepository = new PeopleRepository(_context, _transaction));
+            get => _peopleRepository ?? (_peopleRepository = new PeopleRepository(_context));
         }
 
         private ICourseRepository _courseRepository;
         public ICourseRepository CourseRepository
         {
-            get => _courseRepository ?? (_courseRepository = new CourseRepository(_context, _transaction));
-        }
-
-        public IDisposable BeginTransaction()
-        {
-            _transaction?.Dispose();
-
-            if (_context.State != ConnectionState.Open)
-                _context.Open();
-
-            _transaction = _context.BeginTransaction(IsolationLevel.ReadCommitted);
-
-            return this;
-        }
+            get => _courseRepository ?? (_courseRepository = new CourseRepository(_context));
+        }     
 
         public void Commit()
         {
-            _transaction?.Commit();
+            _context.SaveChanges();
         }
 
         public void Dispose()
         {
-            if (_transaction != null)
-            {
-                _transaction.Dispose();
-                _transaction = null;
-            }
+            _context.DisposeAsync();
         }
 
-        public void RollBack()
-        {
-            _transaction?.Rollback();
-        }
+    
     }
 }

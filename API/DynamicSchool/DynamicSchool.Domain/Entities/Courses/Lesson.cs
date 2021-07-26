@@ -31,7 +31,7 @@ namespace DynamicSchool.Domain.Entities.Courses
 
         public Lesson SetTime(int minute)
         {
-            Assertion.MoreThanOrEqual(minute, 1, "The lesson con't have less one minute");
+            Assertion.MoreThanOrEqual(minute, 1, "The lesson can't have less one minute");
 
             Time = $"{minute.ToString().PadLeft(2,'0')}:00";
             return this;

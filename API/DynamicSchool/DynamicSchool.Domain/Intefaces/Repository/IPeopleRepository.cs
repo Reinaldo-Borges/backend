@@ -8,10 +8,10 @@ namespace DynamicSchool.Domain.Inteface.Repository
 {
     public interface IPeopleRepository
     {
-        Task<ClientDTO> GetClientById(Guid id);
+        //Task<ClientDTO> GetClientById(Guid id);
         Task Add(Client client);
         Task Modify(Client client);
-        Task ChangeStatus(Guid id, bool status);
+      //  Task ChangeStatus(Guid id, bool status);
         Task Add(Teacher teacher);
 
     }

@@ -97,3 +97,4 @@ C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Test.Unit\obj\Debug\ne
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Test.Unit\obj\Debug\net5.0\ref\DynamicSchool.Test.Unit.dll
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Test.Unit\obj\Debug\net5.0\DynamicSchool.Test.Unit.pdb
 C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Test.Unit\obj\Debug\net5.0\DynamicSchool.Test.Unit.genruntimeconfig.cache
+C:\MyProjects\git\backend\API\DynamicSchool\DynamicSchool.Test.Unit\obj\Debug\net5.0\DynamicSchool.Test.Unit.csproj.AssemblyReference.cache

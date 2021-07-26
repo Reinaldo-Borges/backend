@@ -7,7 +7,7 @@ namespace DynamicSchool.Core.DomainObjects
     {
         public Guid Id { get; protected set; }
         public DateTime CreationDate { get;  set; }
-        public StatusEntityEnum StatusEntity { get; set; }
+        public virtual StatusEntityEnum StatusEntity { get; set; }
 
         protected Entity()
         {

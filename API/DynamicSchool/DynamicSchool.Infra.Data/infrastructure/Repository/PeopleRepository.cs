@@ -1,50 +1,43 @@
-﻿using DynamicSchool.Core.Enum;
-using DynamicSchool.Domain.DTO.People;
-using DynamicSchool.Domain.Entities.Courses;
-using DynamicSchool.Domain.Entities.People;
+﻿using DynamicSchool.Domain.Entities.People;
 using DynamicSchool.Domain.Inteface.Repository;
-using DynamicSchool.Infra.Data.Data.Command.People;
-using DynamicSchool.Infra.Data.Data.Query.People;
-using System;
-using System.Data;
+using DynamicSchool.Infra.Data.infrastructure.Context;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.Infra.Data.infrastructure.Repository
 {
     public class PeopleRepository : IPeopleRepository
     {
-        private readonly IDbConnection _context;
-        private IDbTransaction _transaction;
+        private readonly ApplicationContext _context;
 
-        public PeopleRepository(IDbConnection context, IDbTransaction transaction)
+        public PeopleRepository(ApplicationContext context)
         {
             _context = context;
-            _transaction = transaction;            
         }
 
-        public async Task<ClientDTO> GetClientById(Guid id)
-        {
-            return await new QueryClient(_context, _transaction).GetClientById(id);
-        }
+        //public async Task<Client> GetClientById(Guid id)
+        //{
+
+        //    return await _context.Clients.Where(c => c.Id == id);
+        //}
 
         public async Task Add(Client client)
         {
-            await new CommandClient(_context, _transaction).Add(client);
+            _context.Set<Client>().Add(client);//  new CommandClient(_context, _transaction).Add(client);
         }
 
         public async Task Modify(Client client)
         {
-            await new CommandClient(_context, _transaction).Modify(client);
+            _context.Set<Client>().Update(client); // await new CommandClient(_context, _transaction).Modify(client);
         }
 
-        public async Task ChangeStatus(Guid id, bool status)
-        {
-            await new CommandClient(_context, _transaction).ChangeStatus(id, status);
-        }
+        //public async Task ChangeStatus(Guid id, bool status)
+        //{
+        //    await new CommandClient(_context, _transaction).ChangeStatus(id, status);
+        //}
 
         public async Task Add(Teacher teacher)
         {
-            await new CommandTeacher(_context, _transaction).Add(teacher);
+             _context.Teachers.Add(teacher); //await new CommandTeacher(_context, _transaction).Add(teacher);
         }
 
      

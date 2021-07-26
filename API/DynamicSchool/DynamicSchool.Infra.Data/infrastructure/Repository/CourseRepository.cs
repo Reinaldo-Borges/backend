@@ -1,49 +1,46 @@
 ﻿using DynamicSchool.Domain.DTO.Course;
 using DynamicSchool.Domain.Entities.Courses;
 using DynamicSchool.Domain.Inteface.Repository;
-using DynamicSchool.Infra.Data.Data.Command.Courses;
 using DynamicSchool.Infra.Data.Data.Query.Courses;
+using DynamicSchool.Infra.Data.infrastructure.Context;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.Infra.Data.infrastructure.Repository
 {
     public class CourseRepository : ICourseRepository
     {
-        private readonly IDbConnection _context;
-        private IDbTransaction _transaction;
+        private readonly ApplicationContext _context;
 
-        public CourseRepository(IDbConnection context, IDbTransaction transaction)
+        public CourseRepository(ApplicationContext context)
         {
             _context = context;
-            _transaction = transaction;
         }
-       
+
         public async Task Add(Course course)
         {
-            await new CourseCommand(_context, _transaction).Add(course);
+             _context.Set<Course>().Add(course);
         }
 
         public async Task Add(Level level)
         {
-            await new CourseCommand(_context, _transaction).Add(level);
+            _context.Set<Level>().Add(level);
         }
 
         public async Task Add(Lesson lesson)
         {
-            await new CourseCommand(_context, _transaction).Add(lesson);
+            _context.Set<Lesson>().Add(lesson);         
         }
 
         public async Task<IEnumerable<CourseDTO>> List(Guid id)
         {
-            return await new CourseQuery(_context, _transaction).List(id);
+            return await new CourseQuery(_context).List(id);
         }
 
         public async Task<IEnumerable<LevelDTO>> ListLevel(Guid id)
         {
-            return await new LevelQuery(_context, _transaction).List(id);
+            return await new LevelQuery(_context).List(id);
         }
     }
 }
