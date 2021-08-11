@@ -1,6 +1,7 @@
 ﻿using DynamicSchool.Domain.Entities.People;
 using DynamicSchool.Domain.Inteface.Repository;
 using DynamicSchool.Infra.Data.infrastructure.Context;
+using System;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.Infra.Data.infrastructure.Repository
@@ -12,34 +13,36 @@ namespace DynamicSchool.Infra.Data.infrastructure.Repository
         public PeopleRepository(ApplicationContext context)
         {
             _context = context;
-        }
-
-        //public async Task<Client> GetClientById(Guid id)
-        //{
-
-        //    return await _context.Clients.Where(c => c.Id == id);
-        //}
+        }   
 
         public async Task Add(Client client)
         {
-            _context.Set<Client>().Add(client);//  new CommandClient(_context, _transaction).Add(client);
+            _context.Clients.AddAsync(client);
         }
 
         public async Task Modify(Client client)
         {
-            _context.Set<Client>().Update(client); // await new CommandClient(_context, _transaction).Modify(client);
+            _context.Clients.Update(client);
         }
 
-        //public async Task ChangeStatus(Guid id, bool status)
-        //{
-        //    await new CommandClient(_context, _transaction).ChangeStatus(id, status);
-        //}
+        public async Task<Client> GetClientById(Guid id)
+        {
+            return await _context.Clients.FindAsync(id);
+        }
 
         public async Task Add(Teacher teacher)
         {
-             _context.Teachers.Add(teacher); //await new CommandTeacher(_context, _transaction).Add(teacher);
+            _context.Teachers.AddAsync(teacher);
         }
 
-     
+        public async Task Modify(Teacher teacher)
+        {
+            _context.Teachers.Update(teacher);
+        }
+
+        public async Task<Teacher> GetTeacherById(Guid id)
+        {
+            return await _context.Teachers.FindAsync(id);
+        }       
     }
 }

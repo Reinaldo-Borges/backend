@@ -13,6 +13,7 @@ namespace DynamicSchool.Domain.Entities.People
         public DateTime BirthDay { get; private set; }
         public string Resume { get; private set; }
         public Guid ClientOrigin { get; private set; }
+        public Client Client { get; set; }
 
         public Teacher() { }
 

@@ -31,7 +31,7 @@ namespace DynamicSchool.Infra.Data.Data.Command.People
                 Email = client.Email,
                 CellPhone = client.Cellphone,
                 Birthday = client.Birthday,
-                ClientTypeId = client.clientType,
+                ClientTypeId = client.Type,
                 ClientOrigin = client.ClientOrigin
             };
 

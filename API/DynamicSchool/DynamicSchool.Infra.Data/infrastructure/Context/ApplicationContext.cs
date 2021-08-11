@@ -9,7 +9,7 @@ namespace DynamicSchool.Infra.Data.infrastructure.Context
 {
     public class ApplicationContext : DbContext
     {
-       // public DbSet<ClienteOwner> Clients { get; set; }
+        public DbSet<Client> Clients { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Level> Levels { get; set; }
@@ -31,8 +31,7 @@ namespace DynamicSchool.Infra.Data.infrastructure.Context
             //modelBuilder.Entity<Level>().HasQueryFilter(f => f.StatusEntity == Core.Enum.StatusEntityEnum.Active);
             //modelBuilder.Entity<Lesson>().HasQueryFilter(f => f.StatusEntity == Core.Enum.StatusEntityEnum.Active);
 
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-                
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());  
                 
                 
                 

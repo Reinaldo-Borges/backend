@@ -9,11 +9,8 @@ namespace DynamicSchool.Infra.Data.infrastructure.Mapping
         public void Configure(EntityTypeBuilder<Teacher> builder)
         {
             builder.Property(p => p.StatusEntity).HasColumnName("Status");
-
             builder.Property(p => p.Document).HasColumnName("TeacherDocument");
-
-            builder.ToTable("Teacher");
-             
+            builder.ToTable("Teacher");           
             
         }
     }

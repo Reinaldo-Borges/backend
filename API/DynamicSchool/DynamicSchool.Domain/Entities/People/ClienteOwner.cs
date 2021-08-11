@@ -5,7 +5,7 @@ namespace DynamicSchool.Domain.Entities.People
 {
     public class ClienteOwner : Client
     { 
-        public override ClientTypeEnum clientType => ClientTypeEnum.Owner;
+        public override ClientTypeEnum Type => ClientTypeEnum.Owner;
 
        
         public ClienteOwner(string name, string document, string cellPhone, DateTime birthDate) 

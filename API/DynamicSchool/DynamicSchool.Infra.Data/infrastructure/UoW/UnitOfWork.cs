@@ -3,8 +3,6 @@ using DynamicSchool.Domain.Inteface.UoW;
 using DynamicSchool.Infra.Data.infrastructure.Context;
 using DynamicSchool.Infra.Data.infrastructure.Repository;
 using System;
-using System.Data;
-using System.Threading.Tasks;
 
 namespace DynamicSchool.Infra.Data.infrastructure.UoW
 {
