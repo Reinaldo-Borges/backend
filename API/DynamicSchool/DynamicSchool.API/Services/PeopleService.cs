@@ -59,5 +59,11 @@ namespace DynamicSchool.API.Services
             await _unitOfWork.PeopleRepository.Add(teacher);
             _unitOfWork.Commit();            
         }
+
+        public async Task Add(Student student)
+        {
+            await _unitOfWork.PeopleRepository.Add(student);
+            _unitOfWork.Commit();
+        }
     }
 }

@@ -14,5 +14,7 @@ namespace DynamicSchool.Domain.Inteface.Repository
         Task Modify(Teacher teacher);
         Task<Teacher> GetTeacherById(Guid id);
 
+        Task Add(Student student);
+
     }
 }

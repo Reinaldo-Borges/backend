@@ -16,5 +16,7 @@ namespace DynamicSchool.API.Interfaces
 
         Task Add(Teacher teacher);
 
+        Task Add(Student student);
+
     }
 }

@@ -38,8 +38,6 @@ namespace DynamicSchool.Domain.Entities.People
 
         public Teacher SetEmail(string email)
         {
-            Assertion.HasValue(email, "The property Email can't be void");
-
             Email = email;
             return this;
         }

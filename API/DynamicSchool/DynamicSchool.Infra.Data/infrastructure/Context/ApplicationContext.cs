@@ -14,6 +14,7 @@ namespace DynamicSchool.Infra.Data.infrastructure.Context
         public DbSet<Course> Courses { get; set; }
         public DbSet<Level> Levels { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<Student> Students { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,8 +33,6 @@ namespace DynamicSchool.Infra.Data.infrastructure.Context
             //modelBuilder.Entity<Lesson>().HasQueryFilter(f => f.StatusEntity == Core.Enum.StatusEntityEnum.Active);
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());  
-                
-                
                 
         }
 

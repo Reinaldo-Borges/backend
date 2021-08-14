@@ -35,5 +35,13 @@ namespace DynamicSchool.API.Extensions
                         .SetResume(teacherRequest.Resume)
                         .SetId<Teacher>(teacherRequest.Id);
         }
+
+        public static Student ToStudent(this StudentRequest studentRequest)
+        {
+            return new Student(studentRequest.Name, studentRequest.ClientId)
+                        .SetEmail(studentRequest.Email)
+                        .SetCellPhone(studentRequest.CellPhone)
+                        .SetId<Student>(studentRequest.Id);
+        }
     }
 }

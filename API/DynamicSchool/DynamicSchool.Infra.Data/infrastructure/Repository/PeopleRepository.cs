@@ -43,6 +43,11 @@ namespace DynamicSchool.Infra.Data.infrastructure.Repository
         public async Task<Teacher> GetTeacherById(Guid id)
         {
             return await _context.Teachers.FindAsync(id);
-        }       
+        }
+
+        public async Task Add(Student student)
+        {
+            _context.Students.AddAsync(student);
+        }
     }
 }
