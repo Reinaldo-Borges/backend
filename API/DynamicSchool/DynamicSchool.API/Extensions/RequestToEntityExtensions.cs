@@ -1,6 +1,7 @@
 ﻿using DynamicSchool.API.Model.Request;
 using DynamicSchool.Domain.Entities.Courses;
 using DynamicSchool.Domain.Entities.People;
+using DynamicSchool.Domain.Entities.Registrations;
 
 namespace DynamicSchool.API.Extensions
 {
@@ -42,6 +43,11 @@ namespace DynamicSchool.API.Extensions
                         .SetEmail(studentRequest.Email)
                         .SetCellPhone(studentRequest.CellPhone)
                         .SetId<Student>(studentRequest.Id);
+        }
+
+        public static Registration ToRegistration(this RegistrationRequest registrationRequest)
+        {
+            return new Registration(registrationRequest.StudentId, registrationRequest.CourseId);
         }
     }
 }

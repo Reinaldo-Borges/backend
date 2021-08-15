@@ -1,7 +1,6 @@
 ﻿using DynamicSchool.API.Extensions;
 using DynamicSchool.API.Interfaces;
 using DynamicSchool.API.Model.Request;
-using DynamicSchool.Core.Enum;
 using DynamicSchool.Domain.Entities.People;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +27,7 @@ namespace DynamicSchool.API.Controllers.People
             if (!this.ModelState.IsValid) return BadRequest();
 
             var studentBuild = student.ToStudent();
-            studentBuild.Activate();
+            studentBuild.SetNew<Student>();
 
             await _peopleService.Add(studentBuild);
 

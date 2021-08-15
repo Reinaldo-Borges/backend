@@ -7,6 +7,7 @@ namespace DynamicSchool.Domain.Inteface.UoW
     {
         IPeopleRepository PeopleRepository { get; }
         ICourseRepository CourseRepository { get; }
+        IRegistrationRepository RegistrationRepository { get; }
 
         void Commit();   
 

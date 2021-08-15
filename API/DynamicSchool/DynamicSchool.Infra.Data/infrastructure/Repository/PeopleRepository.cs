@@ -17,7 +17,7 @@ namespace DynamicSchool.Infra.Data.infrastructure.Repository
 
         public async Task Add(Client client)
         {
-            _context.Clients.AddAsync(client);
+            await _context.Clients.AddAsync(client);
         }
 
         public async Task Modify(Client client)
@@ -32,7 +32,7 @@ namespace DynamicSchool.Infra.Data.infrastructure.Repository
 
         public async Task Add(Teacher teacher)
         {
-            _context.Teachers.AddAsync(teacher);
+            await _context.Teachers.AddAsync(teacher);
         }
 
         public async Task Modify(Teacher teacher)
@@ -47,7 +47,7 @@ namespace DynamicSchool.Infra.Data.infrastructure.Repository
 
         public async Task Add(Student student)
         {
-            _context.Students.AddAsync(student);
+            await _context.Students.AddAsync(student);
         }
     }
 }

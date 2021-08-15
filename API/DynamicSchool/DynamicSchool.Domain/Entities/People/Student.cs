@@ -1,6 +1,8 @@
 ﻿using DynamicSchool.Core.DomainObjects;
 using DynamicSchool.Core.Enum;
+using DynamicSchool.Domain.Entities.Registrations;
 using System;
+using System.Collections.Generic;
 
 namespace DynamicSchool.Domain.Entities.People
 {
@@ -11,6 +13,7 @@ namespace DynamicSchool.Domain.Entities.People
         public string CellPhone { get; private set; }     
         public Guid ClientId { get; private set; }
         public Client Client { get; private set; }
+        public ICollection<Registration> Registrations { get; } = new List<Registration>();
 
         public Student() { }
 

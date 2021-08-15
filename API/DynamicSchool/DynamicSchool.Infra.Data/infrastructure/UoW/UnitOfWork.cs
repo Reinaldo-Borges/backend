@@ -24,7 +24,13 @@ namespace DynamicSchool.Infra.Data.infrastructure.UoW
         public ICourseRepository CourseRepository
         {
             get => _courseRepository ?? (_courseRepository = new CourseRepository(_context));
-        }     
+        }
+
+        private IRegistrationRepository _registrationRepository;
+        public IRegistrationRepository RegistrationRepository
+        {
+            get => _registrationRepository ?? (_registrationRepository = new RegistrationRepository(_context));
+        }
 
         public void Commit()
         {

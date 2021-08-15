@@ -11,13 +11,20 @@ namespace DynamicSchool.Core.DomainObjects
 
         protected Entity()
         {
-            Id =  Guid.NewGuid();
-            CreationDate = new DateTime();
+            Id =  Guid.NewGuid();            
         }   
         
         public T SetId<T>(Guid id) where T : Entity
         {
             if (id != Guid.Empty) Id = id;
+            return this as T;
+        }  
+        
+        public T SetNew<T>() where T : Entity
+        {
+            CreationDate = DateTime.Now;
+            StatusEntity = StatusEntityEnum.Active;
+
             return this as T;
         }
 

@@ -1,9 +1,9 @@
 ﻿using DynamicSchool.Domain.Entities.Registrations;
 using System.Threading.Tasks;
 
-namespace DynamicSchool.Domain.Inteface.Repository
+namespace DynamicSchool.API.Interfaces
 {
-    public interface IRegistrationRepository 
+    public interface IRegistrationService
     {
         Task Add(Registration registration);
     }

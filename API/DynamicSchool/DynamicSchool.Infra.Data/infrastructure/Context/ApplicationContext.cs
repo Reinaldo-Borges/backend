@@ -1,5 +1,6 @@
 ﻿using DynamicSchool.Domain.Entities.Courses;
 using DynamicSchool.Domain.Entities.People;
+using DynamicSchool.Domain.Entities.Registrations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -15,6 +16,7 @@ namespace DynamicSchool.Infra.Data.infrastructure.Context
         public DbSet<Level> Levels { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Registration> Registrations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
