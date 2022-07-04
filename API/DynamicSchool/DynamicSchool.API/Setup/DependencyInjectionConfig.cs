@@ -16,7 +16,7 @@ namespace DynamicSchool.API.Setup
     {
         public static IServiceCollection ResolveDependencies(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<ApplicationContext>();
+            //services.AddScoped<ApplicationContext>();
             services.AddScoped<JwtSettings>();
 
             services.AddScoped<IPeopleService, PeopleService>();

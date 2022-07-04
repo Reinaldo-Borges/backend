@@ -1,7 +1,9 @@
 ﻿using DynamicSchool.API.Model.Request;
+using DynamicSchool.Core.Enum;
 using DynamicSchool.Domain.Entities.Courses;
 using DynamicSchool.Domain.Entities.People;
 using DynamicSchool.Domain.Entities.Registrations;
+using System;
 
 namespace DynamicSchool.API.Extensions
 {
@@ -45,9 +47,31 @@ namespace DynamicSchool.API.Extensions
                         .SetId<Student>(studentRequest.Id);
         }
 
+        public static Question ToQuestion(this QuestionRequest questionRequest)
+        {
+            //Ver depois esse TypeQuestionEnum
+            return new Question(questionRequest.Description, (TypeQuestionEnum)questionRequest.TypeQuestion, questionRequest.LessonId)                     
+                        .SetId<Question>(questionRequest.Id);
+        }
+
+        public static ResponseQuestion ToResponse(this ResponseRequest responseRequest)
+        {
+
+            return new ResponseQuestion(responseRequest.Description, responseRequest.IsTrue, responseRequest.QuestionId)
+                        .SetReason(responseRequest.Reason)
+                        .SetOrder(responseRequest.Order)
+                        .SetId<ResponseQuestion>(responseRequest.Id);
+        }
+
         public static Registration ToRegistration(this RegistrationRequest registrationRequest)
         {
-            return new Registration(registrationRequest.StudentId, registrationRequest.CourseId);
+            return new Registration(registrationRequest.StudentId, registrationRequest.CourseId);                        
         }
+
+        public static CourseProgress ToCourseProgress(this CourseProgressRequest courseProgressRequest)
+        {
+            return new CourseProgress(courseProgressRequest.RegistrationId, courseProgressRequest.LessonId);
+        }
+
     }
 }

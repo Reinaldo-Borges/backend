@@ -6,23 +6,19 @@ namespace DynamicSchool.Domain.Entities.People
 {
     public class ClientSimple : Client
     {
-        public override ClientTypeEnum Type => ClientTypeEnum.Simple; 
+        public override ClientTypeEnum clientType => ClientTypeEnum.Simple;
 
-        public ClientSimple(Guid clientOrigin, string name, string document, string cellPhone, DateTime birthDate) 
+        public ClientSimple(Guid clientOrigin, string name, string document, string cellPhone, DateTime birthDate)
             : base(name, document, cellPhone, birthDate)
         {
             ClientOrigin = clientOrigin;
 
             Validate();
-        }    
-
-        private void Validate()
-        {
-            Assertion.IsNotNull(ClientOrigin, "The ClientOrigin can't be null");
         }
 
-
-
-
+        protected override void Validate()
+        {
+            Assertion.IsNotNull(ClientOrigin, "The ClientOriginal cant be null");
+        }
     }
 }

@@ -12,15 +12,15 @@ namespace DynamicSchool.API.Extensions
 {
     public static class ContextExtensions
     {
-        public static IServiceCollection BuildApplicationContext(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddDbContext<ApplicationContext>(option =>
-            {
-                option.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
-            });
+        //public static IServiceCollection BuildApplicationContext(this IServiceCollection services, IConfiguration configuration)
+        //{
+        //    services.AddDbContext<ApplicationContext>(option =>
+        //    {
+        //        option.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
+        //    });
 
-            return services;
-        }
+        //    return services;
+        //}
 
         public static IServiceCollection BuildIdentityContext(this IServiceCollection services, IConfiguration configuration)
         {
@@ -59,9 +59,7 @@ namespace DynamicSchool.API.Extensions
                     ValidIssuer = jwtSettings.Issuer
                 };
             });
-
-
-            
+                 
 
 
 

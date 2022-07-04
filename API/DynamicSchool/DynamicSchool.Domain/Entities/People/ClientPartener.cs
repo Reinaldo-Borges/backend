@@ -5,9 +5,9 @@ namespace DynamicSchool.Domain.Entities.People
 {
     public class ClientPartener : Client
     {
-        public override ClientTypeEnum Type => ClientTypeEnum.Partener;
+        public override ClientTypeEnum clientType => ClientTypeEnum.Partener;
 
-        public ClientPartener(string name, string document, string cellPhone, DateTime birthDate) 
+        public ClientPartener(string name, string document, string cellPhone, DateTime birthDate)
             : base(name, document, cellPhone, birthDate)
         {
         }

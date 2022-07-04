@@ -35,5 +35,22 @@ namespace DynamicSchool.API.Controllers.Registrations
 
             return Ok(true);
         }
+
+
+        [HttpPost("courseprogress/new")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<bool>> InsertProgress(CourseProgressRequest progressRequest)
+        {
+            if (progressRequest.RegistrationId == Guid.Empty || progressRequest.LessonId == Guid.Empty)
+                return BadRequest();
+
+            var progress = progressRequest.ToCourseProgress();
+            progress.SetNew<CourseProgress>();
+
+            await _service.Add(progress);
+
+            return Ok(true);
+        }
     }
 }

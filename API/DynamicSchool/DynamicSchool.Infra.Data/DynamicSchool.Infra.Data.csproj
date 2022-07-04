@@ -12,6 +12,7 @@
   <ItemGroup>
     <Folder Include="infrastructure\Cache\" />
     <Folder Include="infrastructure\IoC\" />
+    <Folder Include="infrastructure\Mapping\" />
   </ItemGroup>
 
   <ItemGroup>

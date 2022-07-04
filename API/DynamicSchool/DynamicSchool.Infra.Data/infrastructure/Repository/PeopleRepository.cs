@@ -1,53 +1,63 @@
-﻿using DynamicSchool.Domain.Entities.People;
+﻿using DynamicSchool.Domain.DTO.People;
+using DynamicSchool.Domain.Entities.People;
 using DynamicSchool.Domain.Inteface.Repository;
-using DynamicSchool.Infra.Data.infrastructure.Context;
+using DynamicSchool.Infra.Data.Data.Command.People;
+using DynamicSchool.Infra.Data.Data.Query.People;
 using System;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.Infra.Data.infrastructure.Repository
 {
     public class PeopleRepository : IPeopleRepository
     {
-        private readonly ApplicationContext _context;
+        private readonly IDbConnection _context;
+        private IDbTransaction _transaction;
 
-        public PeopleRepository(ApplicationContext context)
+        public PeopleRepository(IDbConnection context, IDbTransaction transaction)
         {
             _context = context;
-        }   
+            _transaction = transaction;
+        }
+
+        public async Task<ClientDTO> GetClientById(Guid id)
+        {
+            return await new QueryClient(_context, _transaction).GetClientById(id);
+        }
 
         public async Task Add(Client client)
         {
-            await _context.Clients.AddAsync(client);
+            await new CommandClient(_context, _transaction).Add(client);
         }
 
         public async Task Modify(Client client)
         {
-            _context.Clients.Update(client);
+            await new CommandClient(_context, _transaction).Modify(client);
         }
 
-        public async Task<Client> GetClientById(Guid id)
+        public async Task ChangeStatus(Guid id, bool status)
         {
-            return await _context.Clients.FindAsync(id);
+            await new CommandClient(_context, _transaction).ChangeStatus(id, status);
         }
 
         public async Task Add(Teacher teacher)
         {
-            await _context.Teachers.AddAsync(teacher);
+            await new CommandTeacher(_context, _transaction).Add(teacher);
+        }     
+
+        public Task Modify(Teacher teacher)
+        {
+            throw new NotImplementedException();
         }
 
-        public async Task Modify(Teacher teacher)
+        public Task<Teacher> GetTeacherById(Guid id)
         {
-            _context.Teachers.Update(teacher);
+            throw new NotImplementedException();
         }
 
-        public async Task<Teacher> GetTeacherById(Guid id)
+        public Task Add(Student student)
         {
-            return await _context.Teachers.FindAsync(id);
-        }
-
-        public async Task Add(Student student)
-        {
-            await _context.Students.AddAsync(student);
+            throw new NotImplementedException();
         }
     }
 }

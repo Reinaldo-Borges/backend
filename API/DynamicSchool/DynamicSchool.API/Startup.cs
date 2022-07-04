@@ -22,8 +22,16 @@ namespace DynamicSchool.API
        
         public void ConfigureServices(IServiceCollection services)
         {
-            services.BuildApplicationContext(Configuration);
+            // services.BuildApplicationContext(Configuration);
             services.BuildIdentityContext(Configuration);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsApi",
+                    builder => builder.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+            });
 
             services.AddMvc(option => option.EnableEndpointRouting = false)
                  .AddNewtonsoftJson(opt => {                      
@@ -42,9 +50,7 @@ namespace DynamicSchool.API
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {      
-
-
+        {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -52,6 +58,7 @@ namespace DynamicSchool.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DynamicSchool.API v1"));
             }
 
+            app.UseCors("CorsApi");
             app.UseHttpsRedirection();
 
             app.UseRouting();

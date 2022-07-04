@@ -3,15 +3,19 @@ using DynamicSchool.API.Extensions;
 using DynamicSchool.API.Interfaces;
 using DynamicSchool.API.Model.Request;
 using DynamicSchool.API.Model.Response;
+using DynamicSchool.Domain.DTO.Course;
 using DynamicSchool.Domain.Entities.Courses;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.API.Controllers.Courses
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class CourseController : ControllerBase
@@ -25,7 +29,7 @@ namespace DynamicSchool.API.Controllers.Courses
             _mapper = mapper;
         }
 
-        [HttpPost("/new")]
+        [HttpPost("new")]
         [ProducesResponseType(typeof(Course), StatusCodes.Status201Created)]
         [ProducesResponseType((int)StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Course>> Create(CourseRequest course)
@@ -37,7 +41,7 @@ namespace DynamicSchool.API.Controllers.Courses
             return CreatedAtAction("Post", courseBuilt);
         }
 
-        [HttpPost("/level/new")]
+        [HttpPost("level/new")]
         [ProducesResponseType(typeof(Level), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Level>> Create(LevelRequest level)
@@ -49,7 +53,7 @@ namespace DynamicSchool.API.Controllers.Courses
             return CreatedAtAction("Post", levelBuilt);
         }
 
-        [HttpPost("/lesson/new")]
+        [HttpPost("lesson/new")]
         [ProducesResponseType(typeof(CourseResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -63,12 +67,76 @@ namespace DynamicSchool.API.Controllers.Courses
             return lessonBuilt;
         }
 
-        [HttpGet("/{id}")]
+        [HttpPost("question/new")]
+        [ProducesResponseType(typeof(QuestionResponse), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<QuestionRequest>> Create(QuestionRequest question)
+        {
+            if(question.Id != Guid.Empty && question.LessonId == Guid.Empty) return BadRequest();
+
+            var questionBuilt = question.ToQuestion();
+            _courseService.Add(questionBuilt);
+
+            return question;
+        }
+
+        [HttpPatch("question/modify")]
+        [ProducesResponseType(typeof(QuestionResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<QuestionRequest>> Update(QuestionRequest question)
+        {
+            if (question.Id == Guid.Empty) return BadRequest();
+
+            var questionBuilt = question.ToQuestion();
+
+            _courseService.Edit(questionBuilt);
+
+            return question;
+        }
+
+        [HttpPost("response/new")]
+        [ProducesResponseType(typeof(ResponseQuestion), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> Create(ResponseRequest responses)
+        {
+            
+            var responseBuilt = responses.ToResponse(); 
+            
+             _courseService.Add(responseBuilt);   
+
+
+            return Ok(responseBuilt);
+        }
+
+        [HttpPatch("response/modify")]
+        [ProducesResponseType(typeof(ResponseQuestion), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> Edit(ResponseRequest responses)
+        {
+            if (responses.Id == Guid.Empty) return BadRequest();
+
+            var responseBuilt = responses.ToResponse();
+
+            _courseService.Edit(responseBuilt);
+
+
+            return Ok(responseBuilt);
+        }
+
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(LevelResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<CourseResponse>> GetCourse(Guid id)
+        public async Task<ActionResult<IEnumerable<CourseResponse>>> GetCourse(Guid id)
         {
             if (id == Guid.Empty) return BadRequest();
 
@@ -77,10 +145,10 @@ namespace DynamicSchool.API.Controllers.Courses
             if (!courses.Any()) return NotFound();
 
             var course = courses.ToCourseResponse();
-            return course;
+            return course.ToList();
         }
 
-        [HttpGet("/level/{id}")]
+        [HttpGet("level/{id}")]
         [ProducesResponseType(typeof(LevelResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -95,6 +163,39 @@ namespace DynamicSchool.API.Controllers.Courses
 
             var level = levels.ToLevelResponse();
             return level;
+        }
+
+        [HttpGet("question/{lessonId}")]
+        [ProducesResponseType(typeof(IEnumerable<QuestionDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<IEnumerable<QuestionDTO>>> GetQuestion(Guid lessonId)
+        {
+            if (lessonId == Guid.Empty) return BadRequest();
+
+            var questions = await _courseService.ListQuestion(lessonId);
+
+            if (!questions.Any()) return NotFound();
+
+            return questions.ToList();
+        }
+
+
+        [HttpGet("response/{questionId}")]
+        [ProducesResponseType(typeof(IEnumerable<ResponseDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<IEnumerable<ResponseDTO>>> GetResponse(Guid questionId)
+        {
+            if (questionId == Guid.Empty) return BadRequest();
+
+            var responses = await _courseService.ListResponse(questionId);
+
+            if (!responses.Any()) return NotFound();
+
+            return responses.ToList();
         }
     }
 }

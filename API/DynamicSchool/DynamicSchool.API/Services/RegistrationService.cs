@@ -19,5 +19,11 @@ namespace DynamicSchool.API.Services
             await _unitOfWork.RegistrationRepository.Add(registration);
             _unitOfWork.Commit();
         }
+
+        public async Task Add(CourseProgress courseProgress)
+        {
+            await _unitOfWork.RegistrationRepository.Add(courseProgress);
+            _unitOfWork.Commit();
+        }
     }
 }

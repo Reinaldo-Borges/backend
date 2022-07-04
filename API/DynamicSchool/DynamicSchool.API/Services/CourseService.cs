@@ -34,6 +34,39 @@ namespace DynamicSchool.API.Services
             _unitOfWork.Commit();            
         }
 
+        public async Task Add(Question question)
+        {
+            await _unitOfWork.CourseRepository.Add(question);
+            _unitOfWork.Commit();
+        }
+
+        public async Task Edit(Question question)
+        {
+            using (_unitOfWork.BeginTransaction())
+            {                
+                await _unitOfWork.CourseRepository.Edit(question);
+                _unitOfWork.Commit();
+            }
+        }
+
+        public async Task Add(ResponseQuestion response)
+        {
+            using (_unitOfWork.BeginTransaction())
+            {                
+                await _unitOfWork.CourseRepository.Add(response);                
+                _unitOfWork.Commit();
+            }            
+        }
+
+        public async Task Edit(ResponseQuestion response)
+        {
+            using (_unitOfWork.BeginTransaction())
+            {
+                await _unitOfWork.CourseRepository.Edit(response);
+                _unitOfWork.Commit();
+            }
+        }
+
         public async Task<IEnumerable<CourseDTO>> List(Guid id)
         {           
             var courses = await _unitOfWork.CourseRepository.List(id);
@@ -48,6 +81,22 @@ namespace DynamicSchool.API.Services
             _unitOfWork.Commit();
 
             return levels;            
+        }
+
+        public async Task<IEnumerable<QuestionDTO>> ListQuestion(Guid lessonId)
+        {
+            var questions = await _unitOfWork.CourseRepository.ListQuestion(lessonId);
+            _unitOfWork.Commit();
+
+            return questions;
+        }
+
+        public async Task<IEnumerable<ResponseDTO>> ListResponse(Guid lessonId)
+        {
+            var responses = await _unitOfWork.CourseRepository.ListResponse(lessonId);
+            _unitOfWork.Commit();
+
+            return responses;
         }
     }
 }

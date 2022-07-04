@@ -1,7 +1,5 @@
 ﻿using Dapper;
 using DynamicSchool.Domain.Entities.Courses;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -71,6 +69,77 @@ namespace DynamicSchool.Infra.Data.Data.Command.Courses
             };
 
             _connection.Execute(sql, parametros, _transaction);
-        }     
+        }
+
+        public async Task Add(Question question)
+        {
+            var sql = @"INSERT INTO Question
+                               (Id, Code, Description, TypeQuestion, LessonId)
+                         VALUES
+                               (@Id, @Code, @Description, @TypeQuestion, @LessonId)";
+
+            var parametros = new
+            {
+                Id = question.Id,
+                Code = question.Code,
+                Description = question.Description,
+                TypeQuestion = (short) question.TypeQuestion,
+                LessonId = question.LessonId
+            };
+
+            _connection.Execute(sql, parametros, _transaction);
+        }
+
+        public async Task Add(ResponseQuestion response)
+        {
+            var sql = @"INSERT INTO Response
+                               (Id, Description, IsTrue, NumberOrder, Reason, QuestionId)
+                         VALUES
+                               (@Id, @Description, @IsTrue, @Order, @Reason, @QuestionId)";
+
+            var parametros = new
+            {
+                Id = response.Id,              
+                Description = response.Description,
+                IsTrue = response.IsTrue,
+                Order = response.Order,
+                Reason = response.Reason,
+                QuestionId = response.QuestionId
+            };
+
+            _connection.Execute(sql, parametros, _transaction);
+        }
+
+        public async Task Edit(Question question)
+        {
+            var sql = "UPDATE Question SET Description = @Description WHERE Id = @Id";
+
+            var parametros = new
+            {
+                Id = question.Id,
+                Description = question.Description
+            };
+
+            _connection.Execute(sql, parametros, _transaction);
+        }
+
+        public async Task Edit(ResponseQuestion response)
+        {
+            var sql = @"UPDATE Response
+                             SET Description = @Description, 
+                                 IsTrue = @IsTrue, 
+                                 Reason = @Reason
+                         WHERE  Id = @Id";
+
+            var parametros = new
+            {
+                Id = response.Id,
+                Description = response.Description,
+                IsTrue = response.IsTrue,       
+                Reason = response.Reason         
+            };
+
+            _connection.Execute(sql, parametros, _transaction);
+        }
     }
 }

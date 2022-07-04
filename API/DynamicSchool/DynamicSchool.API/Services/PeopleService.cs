@@ -19,45 +19,45 @@ namespace DynamicSchool.API.Services
         {
             _unitOfWork = unitOfWork;
             _factory = factory;
-        }      
+        }
 
         public async Task<ClientDTO> GetClientById(Guid id)
-        {            
-            //var client = await _unitOfWork.PeopleRepository.GetClientById(id);
-            //_unitOfWork.Commit();
+        {
+            var client = await _unitOfWork.PeopleRepository.GetClientById(id);
+            _unitOfWork.Commit();
 
-            return null;// client;                        
+            return client;                        
         }
 
         public async Task Add(IClient client)
         {
             var clientBuilt = _factory.Buider(client);
-         
+
             await _unitOfWork.PeopleRepository.Add(clientBuilt);
-            _unitOfWork.Commit();            
-            
+            _unitOfWork.Commit();
+
         }
 
         public async Task Modify(IClient client)
         {
             var clientBuilt = _factory.Buider(client);
-          
+
             await _unitOfWork.PeopleRepository.Modify(clientBuilt);
-            _unitOfWork.Commit();            
+            _unitOfWork.Commit();
         }
 
         public async Task ChangeStatus(Guid id, bool status)
         {
-           
+
             //await _unitOfWork.PeopleRepository.ChangeStatus(id, status);
             //_unitOfWork.Commit();
-            
+
         }
 
         public async Task Add(Teacher teacher)
-        {            
+        {
             await _unitOfWork.PeopleRepository.Add(teacher);
-            _unitOfWork.Commit();            
+            _unitOfWork.Commit();
         }
 
         public async Task Add(Student student)

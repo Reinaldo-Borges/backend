@@ -34,7 +34,7 @@ namespace DynamicSchool.API.Extensions
             return level;
         }
 
-        public static CourseResponse ToCourseResponse(this IEnumerable<CourseDTO> courses)
+        public static IEnumerable<CourseResponse> ToCourseResponse(this IEnumerable<CourseDTO> courses)
         {           
             var course = courses.GroupBy(gb => new { gb.Id, gb.Name, gb.Description, gb.CreationDate, gb.Status, gb.TeacherId })
                 .Select(s => new CourseResponse()
@@ -63,10 +63,12 @@ namespace DynamicSchool.API.Extensions
                             Status = (StatusEntityEnum) ls.LessonStatus
                         }).ToList()
                     }).ToList()
-                }).First();
+                }).ToList();
 
             return course;
         }
+
+        
     }
 }
 

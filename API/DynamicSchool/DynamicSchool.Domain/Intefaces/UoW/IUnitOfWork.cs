@@ -1,4 +1,5 @@
 ﻿using DynamicSchool.Domain.Inteface.Repository;
+using System;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.Domain.Inteface.UoW
@@ -9,7 +10,9 @@ namespace DynamicSchool.Domain.Inteface.UoW
         ICourseRepository CourseRepository { get; }
         IRegistrationRepository RegistrationRepository { get; }
 
-        void Commit();   
+        IDisposable BeginTransaction();
+        void Commit();
+        void RollBack();
 
     }
 }

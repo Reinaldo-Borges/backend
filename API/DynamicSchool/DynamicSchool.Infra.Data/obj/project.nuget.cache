@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0lu0S0s4nvdq8c8fdsKVWeq6VFlJ+hYPdV2QUmDmv4lLj7AqR8T4/YRlZywZj0XEqBBhKwp/daLXl2Q4+HuZ4g==",
+  "dgSpecHash": "2HSeD2KrySxLHUHRU+wNMV/LTRkfoXjYCKG/cEmgG/epr9FWT5ju3OsrqW0qOAPcqivu46tYPfRkutgLafZDzw==",
   "success": true,
   "projectFilePath": "C:\\MyProjects\\git\\backend\\API\\DynamicSchool\\DynamicSchool.Infra.Data\\DynamicSchool.Infra.Data.csproj",
   "expectedPackageFiles": [

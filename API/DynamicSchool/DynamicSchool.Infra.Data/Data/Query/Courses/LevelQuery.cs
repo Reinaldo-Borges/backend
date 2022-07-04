@@ -1,20 +1,21 @@
 ﻿using Dapper;
 using DynamicSchool.Domain.DTO.Course;
-using DynamicSchool.Infra.Data.infrastructure.Context;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace DynamicSchool.Infra.Data.Data.Query.Courses
 {
     public class LevelQuery
     {
-        private readonly ApplicationContext _context;
+        private readonly IDbConnection _connection;
+        private readonly IDbTransaction _transaction;
 
-        public LevelQuery(ApplicationContext context)
+        public LevelQuery(IDbConnection connection, IDbTransaction transaction)
         {
-            _context = context;
+            _connection = connection;
+            _transaction = transaction;
         }
 
         public async Task<IEnumerable<LevelDTO>> List(Guid id)
@@ -41,8 +42,7 @@ namespace DynamicSchool.Infra.Data.Data.Query.Courses
                 Id = id
             };
 
-            return await _context.Database.GetDbConnection()
-                .QueryAsync<LevelDTO>(sql, parametros);
-        }       
+            return await _connection.QueryAsync<LevelDTO>(sql, parametros, _transaction);
+        }
     }
 }

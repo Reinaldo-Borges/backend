@@ -1,4 +1,5 @@
-﻿using DynamicSchool.Domain.Entities.People;
+﻿using DynamicSchool.Domain.DTO.People;
+using DynamicSchool.Domain.Entities.People;
 using System;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace DynamicSchool.Domain.Inteface.Repository
     {
         Task Add(Client client);
         Task Modify(Client client);
-        Task<Client> GetClientById(Guid id);
+        Task<ClientDTO> GetClientById(Guid id);
 
         Task Add(Teacher teacher);
         Task Modify(Teacher teacher);

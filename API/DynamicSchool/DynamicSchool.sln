@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicSchool.Test.Integrat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicSchool.Test.Unit", "DynamicSchool.Test.Unit\DynamicSchool.Test.Unit.csproj", "{6C083809-1BFD-417A-9DD8-7CFD14911135}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicSchool.Core", "DynamicSchool.Core\DynamicSchool.Core.csproj", "{C419192B-7974-40C9-90E2-62A8701D7E78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicSchool.Core", "DynamicSchool.Core\DynamicSchool.Core.csproj", "{C419192B-7974-40C9-90E2-62A8701D7E78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

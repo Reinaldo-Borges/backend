@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DynamicSchool.Domain.DTO.People;
+using DynamicSchool.Domain.Entities.People;
 using System;
 using System.Data;
 using System.Threading.Tasks;
@@ -32,8 +33,7 @@ namespace DynamicSchool.Infra.Data.Data.Query.People
             var parametros = new { Id = id };
 
             return await _connection.QueryFirstAsync<ClientDTO>(sql, parametros, _transaction);            
-        }
-        
+        }       
         
     }
 }
